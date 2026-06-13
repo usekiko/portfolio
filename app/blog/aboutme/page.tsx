@@ -59,7 +59,7 @@ export default function AboutMe() {
       </p>
 
       <p className="mb-4">
-        We do not use Google Analytics or tracking cookies. Files are stored under random UUIDs with AES-256-GCM encrypted filenames. Nicknames are stored as a SHA-256 hash. If an account is inactive for 7 days, the access keys, files, and profile are permanently purged. No backups, no recovery. That is the standard for privacy.
+        We operate on a strict zero-knowledge architecture. No Google Analytics, no tracking cookies. Files are securely distributed under random UUIDs with AES-GCM encrypted filenames, and user identities are protected via SHA-256 hashing. Everything runs on self-managed, isolated infrastructure
       </p>
 
       <hr className="my-8 border-zinc-800" />
@@ -68,10 +68,10 @@ export default function AboutMe() {
 
       <ul className="list-disc pl-6 mb-4 space-y-2">
         <li><strong>Framework</strong>: Next.js (App Router)</li>
-        <li><strong>Language</strong>: TypeScript, always</li>
+        <li><strong>Language</strong>: Always go Typescript</li>
         <li><strong>Styling</strong>: Tailwind CSS v4</li>
-        <li><strong>Infrastructure</strong>: Cloudflare, Shared Hosting</li>
-        <li><strong>Database</strong>: Whatever fits the problem — Mostly PostgresSQL ("pg" npm package)</li>
+        <li><strong>Infrastructure</strong>: Self-managed VPS, Nginx, Cloudflare Proxy, and automated CI/CD via GitHub Actions</li>
+        <li><strong>Database & Storage</strong>: PostgreSQL ("pg" npm package) and Cloudflare R2</li>
       </ul>
 
       <hr className="my-8 border-zinc-800" />
