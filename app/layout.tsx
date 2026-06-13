@@ -184,7 +184,7 @@ export default function RootLayout({
           type="font/ttf"
           crossOrigin="anonymous"
         />
-        <link rel="preload" as="image" href="https://r2.hypastack.com/cdn/ro5ax8cts328/hellbound.png" />
+        <link rel="preload" as="image" href="https://r2.hypastack.com/cdn/jxvmdjwe4dnu/hellbound.png" />
         <link rel="preload" as="image" href="https://r2.hypastack.com/cdn/uwxyc1tcnru9/usekiko.webp" />
         <link rel="preload" as="image" href="https://r2.hypastack.com/cdn/95p6jl50f3fj/kiko.jpg" />
         <link rel="dns-prefetch" href="https://r2.hypastack.com" />
