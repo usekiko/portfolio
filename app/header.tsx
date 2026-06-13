@@ -6,7 +6,7 @@ export function Header() {
       <div className="flex items-center gap-4">
         <img
           src="https://r2.hypastack.com/cdn/jxvmdjwe4dnu/hellbound.png"
-          alt="Kiko"
+          alt="usekiko"
           className="h-16 w-16 mask-squircle object-cover grayscale"
           loading="eager"
           decoding="sync"
