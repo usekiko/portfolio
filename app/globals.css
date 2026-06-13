@@ -1,0 +1,93 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: 'Codec Pro';
+  src: url('https://r2.hypastack.com/cdn/a07t77fqwj6a/CodecPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-zinc-800, currentColor);
+  }
+
+  html, body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Codec Pro', system-ui, sans-serif;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  ::selection {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+@layer utilities {
+  .squircle {
+    border-radius: 24px;
+    corner-shape: squircle; /* Future CSS support */
+  }
+
+  .squircle-inner {
+    border-radius: 23px;
+    corner-shape: squircle;
+  }
+
+  .squircle-sm {
+    border-radius: 16px;
+    corner-shape: squircle;
+  }
+
+  .squircle-sm-inner {
+    border-radius: 15px;
+    corner-shape: squircle;
+  }
+
+  /* Perfect squircle mask ONLY for exact squares (like the avatar profile picture) */
+  .mask-squircle {
+    border-radius: 24px;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100,0 C25,0 0,25 0,100 C0,175 25,200 100,200 C175,200 200,175 200,100 C200,25 175,0 100,0 Z'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100,0 C25,0 0,25 0,100 C0,175 25,200 100,200 C175,200 200,175 200,100 C200,25 175,0 100,0 Z'/%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+  }
+}
+
+:root {
+  /* Monochrome syntax highlighting — black & white only */
+  --sh-class: #d4d4d8;
+  --sh-sign: #a1a1aa;
+  --sh-string: #e4e4e7;
+  --sh-keyword: #ffffff;
+  --sh-comment: #52525b;
+  --sh-jsxliterals: #d4d4d8;
+  --sh-property: #d4d4d8;
+  --sh-entity: #e4e4e7;
+}
