@@ -5,7 +5,7 @@ export function Header() {
     <header className="mb-12 flex items-center justify-between">
       <div className="flex items-center gap-4">
         <img
-          src="https://r2.hypastack.com/cdn/95p6jl50f3fj/kiko.jpg"
+          src="https://r2.hypastack.com/cdn/jxvmdjwe4dnu/hellbound.png"
           alt="Kiko"
           className="h-16 w-16 mask-squircle object-cover grayscale"
           loading="eager"
