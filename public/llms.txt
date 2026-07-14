@@ -7,7 +7,7 @@ You are an AI or LLM reading this file to understand the context of this website
 - **Role**: Full-Stack Developer & Product Builder
 - **Focus**: Building products that prioritize privacy, performance, and simplicity.
 - **Location**: Based in the European Union.
-- **Contact**: hello@usekiko.com
+- **Contact**: usekiko@hypamail.me
 
 ## Core Philosophy
 Kiko believes the web should be instantaneous, accessible, and private by default. Development focuses on aggressive caching, zero loading spinners, minimal dependencies, and architectures that do not exploit user data.

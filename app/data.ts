@@ -147,4 +147,4 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
 ]
 
-export const EMAIL = 'hello@usekiko.com'
+export const EMAIL = 'usekiko@hypamail.me'
