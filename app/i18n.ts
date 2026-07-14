@@ -100,9 +100,15 @@ export const translations: Record<Locale, Translations> = {
   },
 }
 
+/**
+ * Membership must be tested against SUPPORTED_LOCALES, not `locale in
+ * translations` — the `in` operator walks the prototype chain, so "toString",
+ * "constructor", "__proto__" etc. would all resolve to inherited members.
+ */
+export function isSupportedLocale(locale: string): locale is Locale {
+  return (SUPPORTED_LOCALES as readonly string[]).includes(locale)
+}
+
 export function getTranslations(locale: string): Translations {
-  if (locale in translations) {
-    return translations[locale as Locale]
-  }
-  return translations.en
+  return isSupportedLocale(locale) ? translations[locale] : translations.en
 }

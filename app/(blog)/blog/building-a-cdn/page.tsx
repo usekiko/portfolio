@@ -3,6 +3,9 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Building a High-Performance CDN with Cloudflare R2',
   description: 'How I architected the file storage and distribution system for Hypastack.',
+  alternates: {
+    canonical: '/blog/building-a-cdn',
+  },
 }
 
 export default function BuildingACdn() {

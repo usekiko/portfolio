@@ -6,13 +6,8 @@ import {
   BLOG_POSTS,
   EMAIL,
   SOCIAL_LINKS,
-} from '../data'
-import { getTranslations, SUPPORTED_LOCALES } from '../i18n'
-
-export function generateStaticParams() {
-  return SUPPORTED_LOCALES.map((locale) => ({ locale }))
-}
-
+} from '../../data'
+import { getTranslations } from '../../i18n'
 
 function ProjectImage({ src, alt }: { src: string; alt: string }) {
   return (

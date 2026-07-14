@@ -3,6 +3,9 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'How to Export Metadata from MDX for Next.js SEO',
   description: 'A guide on exporting metadata from MDX files to leverage Next.js SEO features.',
+  alternates: {
+    canonical: '/blog/example-mdx-metadata',
+  },
 }
 
 export default function MdxMetadata() {

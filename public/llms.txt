@@ -25,14 +25,16 @@ Hypastack is a zero-knowledge, privacy-focused file sharing SaaS with a built-in
 - **Third Parties**: Uses Cloudflare for DNS, DDoS, Turnstile, and R2. No Google Analytics, Hotjar, or tracking pixels are used.
 
 ## Tech Stack
-- **Framework**: Next.js 15 (App Router, fully static)
+- **Framework**: Next.js 16 (App Router, statically prerendered)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS v4 (Monochrome/Black & White theme)
-- **Infrastructure**: Cloudflare, Vercel, R2
-- **Performance**: Heavy use of Edge caching, HTTP preload links, eager image loading, and `fetchPriority="high"` to eliminate cumulative layout shift (CLS) and loading spinners.
+- **Infrastructure**: Self-managed VPS running the app as a rootless Podman container behind Caddy, with Cloudflare (DNS/proxy) and Cloudflare R2 for assets. Deployed via GitHub Actions.
+- **Performance**: Heavy use of edge caching, HTTP preload links, and eager image loading to eliminate cumulative layout shift (CLS) and loading spinners.
 
 ## Site Structure
-- `/` - Homepage featuring projects and experience.
+- `/` - Redirects to the visitor's language (`/en` or `/pl`) based on Accept-Language.
+- `/en`, `/pl` - Homepage featuring projects and experience. English and Polish.
+- `/blog` - Index of technical writing (English only).
 - `/blog/aboutme` - Why Kiko builds for the web.
 - `/blog/building-a-cdn` - Architecture breakdown of Hypastack's CDN using Cloudflare R2.
 - `/blog/end-of-loading-spinners` - Manifesto on eager loading and aggressive caching.

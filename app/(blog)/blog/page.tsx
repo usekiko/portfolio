@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BLOG_POSTS } from '../data'
+import { BLOG_POSTS } from '../../data'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {

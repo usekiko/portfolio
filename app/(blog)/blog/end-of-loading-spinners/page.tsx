@@ -3,6 +3,9 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'The End of the Loading Spinner',
   description: 'Aggressive caching, eager loading, and how to make the web feel instantaneous.',
+  alternates: {
+    canonical: '/blog/end-of-loading-spinners',
+  },
 }
 
 export default function EndOfLoadingSpinners() {

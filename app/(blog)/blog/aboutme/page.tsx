@@ -70,7 +70,7 @@ export default function AboutMe() {
         <li><strong>Framework</strong>: Next.js (App Router)</li>
         <li><strong>Language</strong>: Always go Typescript</li>
         <li><strong>Styling</strong>: Tailwind CSS v4</li>
-        <li><strong>Infrastructure</strong>: Self-managed VPS, Nginx, Cloudflare Proxy, and automated CI/CD via GitHub Actions</li>
+        <li><strong>Infrastructure</strong>: Self-managed VPS, rootless Podman containers behind Caddy, Cloudflare Proxy, and automated CI/CD via GitHub Actions</li>
         <li><strong>Database & Storage</strong>: PostgreSQL ("pg" npm package) and Cloudflare R2</li>
       </ul>
 

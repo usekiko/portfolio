@@ -6,8 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "security:audit": "npm audit && npm audit fix --force",
+    "lint": "eslint .",
+    "security:audit": "npm audit",
+    "security:fix": "npm audit fix",
     "security:check": "npm audit --audit-level=moderate"
   },
   "dependencies": {
@@ -17,12 +18,11 @@
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.3",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^25.2.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "eslint": "^10.5.0",
+    "eslint": "^9.39.5",
     "eslint-config-next": "^16.2.9",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",

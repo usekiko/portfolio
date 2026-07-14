@@ -1,26 +1,40 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
+import { BLOG_POSTS } from './data'
+import { SUPPORTED_LOCALES } from './i18n'
+import { SITE_URL } from './site-config'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://usekiko.com'
+  const lastModified = new Date()
+
+  const localeRoutes: MetadataRoute.Sitemap = SUPPORTED_LOCALES.map(
+    (locale) => ({
+      url: `${SITE_URL}/${locale}`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 1,
+      alternates: {
+        languages: Object.fromEntries(
+          SUPPORTED_LOCALES.map((l) => [l, `${SITE_URL}/${l}`]),
+        ),
+      },
+    }),
+  )
+
+  const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+    url: `${SITE_URL}${post.link}`,
+    lastModified,
+    changeFrequency: 'yearly',
+    priority: 0.6,
+  }))
 
   return [
+    ...localeRoutes,
     {
-      url: `${baseUrl}/en`,
-      lastModified: new Date(),
+      url: `${SITE_URL}/blog`,
+      lastModified,
       changeFrequency: 'monthly',
-      priority: 1,
+      priority: 0.8,
     },
-    {
-      url: `${baseUrl}/pl`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/blog/example-mdx-metadata`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.6,
-    },
+    ...blogRoutes,
   ]
 }
