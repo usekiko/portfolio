@@ -37,7 +37,7 @@ export const translations: Record<Locale, Translations> = {
     },
     personalProjectDescriptions: {
       'project-usekiko': 'My personal portfolio — the site you\'re on right now.',
-      'project-hypamail': 'Burner email service — disposable inboxes, no signup.',
+      'project-hypamail': 'Burner email service.',
     },
     blogTitles: {
       'blog-1': {
@@ -81,7 +81,7 @@ export const translations: Record<Locale, Translations> = {
     },
     personalProjectDescriptions: {
       'project-usekiko': 'Moje osobiste portfolio — strona, na której właśnie jesteś.',
-      'project-hypamail': 'Tymczasowa poczta e-mail — jednorazowe skrzynki, bez rejestracji.',
+      'project-hypamail': 'Tymczasowa poczta e-mail.',
     },
     blogTitles: {
       'blog-1': {

@@ -35,7 +35,7 @@ The main app is Next.js 16 with route handlers at `/api/v2/`, backed by PostgreS
 A Tauri v2 desktop wrapper provides a system tray and right-click uploads.
 
 ## Secondary Project: Hypamail (hypamail.me)
-A burner email service — disposable inboxes, no signup.
+A burner email service.
 
 ## Tech Stack
 - **Framework**: Next.js 16 (App Router, statically prerendered)

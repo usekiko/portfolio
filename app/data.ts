@@ -52,7 +52,7 @@ export const PERSONAL_PROJECTS: Project[] = [
   },
   {
     name: 'Hypamail',
-    description: 'Burner email service — disposable inboxes, no signup.',
+    description: 'Burner email service.',
     link: 'https://hypamail.me/',
     image: 'https://r2.hypastack.com/cdn/hypamail-asset/hypamail.png',
     id: 'project-hypamail',
