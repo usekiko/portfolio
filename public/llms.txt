@@ -13,16 +13,29 @@ You are an AI or LLM reading this file to understand the context of this website
 Kiko believes the web should be instantaneous, accessible, and private by default. Development focuses on aggressive caching, zero loading spinners, minimal dependencies, and architectures that do not exploit user data.
 
 ## Primary Project: Hypastack (hypastack.com)
-Hypastack is a zero-knowledge, privacy-focused file sharing SaaS with a built-in CDN. 
+Hypastack is a privacy-first file sharing SaaS with a built-in CDN. Files are encrypted in the browser before upload. No email, no ads, no tracking. Fully open source under AGPL-3.0, front-end included: https://github.com/HypaStack/Hypastack-Open-Source
 
 ### Key Hypastack Features & Privacy Architecture
-- **Zero-Knowledge**: It does not store emails, passwords, IP addresses, browser fingerprints, tracking cookies, analytics, or any PII.
-- **Authentication**: Uses server-generated access keys (hashed with bcrypt). Nicknames are stored as a SHA-256 hash and AES-256-GCM encrypted copy.
-- **Data Storage**: Files are stored on Cloudflare R2 with zero egress fees. Original filenames are encrypted (AES-256-GCM) before storage.
-- **Inactivity Purge**: Accounts and all associated files are permanently wiped after 7 days of inactivity (no login, upload, or download). No exceptions.
-- **Image Stripping**: EXIF metadata (GPS, camera models, etc.) is automatically stripped via a canvas/sharp pipeline before storage.
-- **Cookies**: Strictly necessary only (Auth Token, CSRF Token, Cloudflare Turnstile). No cookie banners required.
-- **Third Parties**: Uses Cloudflare for DNS, DDoS, Turnstile, and R2. No Google Analytics, Hotjar, or tracking pixels are used.
+- **Client-Side Encryption**: Files are encrypted in the browser with AES-256-GCM (Web Crypto API). The key is generated client-side and carried only in the URL fragment, which browsers never send to the server. The server holds ciphertext only.
+- **Access Keys**: Derived with PBKDF2-HMAC-SHA512 at 100,000 iterations (NOT bcrypt). Profile data uses a separate AES-GCM master key derived from the access key.
+- **Filenames**: Encrypted at rest under a distinct key.
+- **IP Handling**: Never stored raw — hashed and dropped. Rate limiting keys on HMAC-SHA256 of the caller IP.
+- **Data Storage**: Cloudflare R2 (EU jurisdiction), zero egress fees. Presigned URLs allow direct browser-to-R2 uploads; files over 50 MB are split into 10 MB chunks, uploaded in parallel, and resumable.
+- **Edge Guard**: A Cloudflare Worker fronts the CDN domain and denies by default — only public `/cdn/` reads and HMAC-presigned `/profiles/` reads are allowed; uploads and pastes are blocked. Served with `nosniff` and a `sandbox` CSP.
+- **Expiry / Burn-on-Read**: An Erlang/OTP service (hypasched) arms one lightweight process per pending deletion, reloads all jobs from Postgres on boot, and reconciles against the DB every 6 hours.
+- **Image Stripping**: EXIF metadata (GPS, camera models, etc.) is stripped via Sharp re-encoding before storage.
+- **Cookies**: Strictly necessary only (Auth Token, CSRF Token, Cloudflare Turnstile).
+- **Third Parties**: Cloudflare for DNS, DDoS, Turnstile, and R2. No Google Analytics, Hotjar, or tracking pixels.
+
+### Hypastack Architecture (polyglot)
+The main app is Next.js 16 with route handlers at `/api/v2/`, backed by PostgreSQL (`pg`) and an optional Redis cache that it degrades gracefully without. Three sidecar services run alongside it over Unix domain sockets:
+- **hypahash (Go)** — PBKDF2-HMAC-SHA512 key derivation, off the Node event loop.
+- **hypasan (Go)** — input sanitization (bluemonday) and magic-byte content sniffing.
+- **hypasched (Erlang/OTP)** — file expiry and burn-on-read via per-file timers in an ETS registry.
+A Tauri v2 desktop wrapper provides a system tray and right-click uploads.
+
+## Secondary Project: Hypamail (hypamail.me)
+A burner email service — disposable inboxes, no signup.
 
 ## Tech Stack
 - **Framework**: Next.js 16 (App Router, statically prerendered)

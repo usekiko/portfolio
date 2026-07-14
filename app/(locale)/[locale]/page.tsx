@@ -9,13 +9,16 @@ import {
 } from '../../data'
 import { getTranslations } from '../../i18n'
 
+/** Every card image, in render order — also what we preload. */
+const CARD_IMAGES = [...PROJECTS, ...PERSONAL_PROJECTS].map((p) => p.image)
+
 function ProjectImage({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="relative aspect-video w-full overflow-hidden squircle-sm-inner">
       <img
         src={src}
         alt={alt}
-        className="h-full w-full object-cover grayscale"
+        className="h-full w-full object-cover"
         loading="eager"
         decoding="sync"
       />
@@ -68,6 +71,12 @@ export default async function LocalePage({
 
   return (
     <main className="space-y-24">
+      {/* Hoisted into <head> by React. Keeps the cards spinner-free without
+          preloading them on routes that never render them. */}
+      {CARD_IMAGES.map((src) => (
+        <link key={src} rel="preload" as="image" href={src} />
+      ))}
+
       <section id="hero">
         <div className="flex-1">
           <h1 className="mb-4 text-2xl font-medium tracking-tight text-white">

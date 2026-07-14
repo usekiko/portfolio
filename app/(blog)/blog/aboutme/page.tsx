@@ -1,9 +1,13 @@
 import { Metadata } from 'next'
+import { ArticleJsonLd } from '../article-jsonld'
+
+const title = 'Why I Build for the Web'
+const description =
+  'My journey into web development — what drives me to build products, and why privacy and performance matter.'
 
 export const metadata: Metadata = {
-  title: 'Why I Build for the Web',
-  description:
-    'My journey into web development — what drives me to build products, and why privacy and performance matter.',
+  title,
+  description,
   alternates: {
     canonical: '/blog/aboutme',
   },
@@ -12,7 +16,7 @@ export const metadata: Metadata = {
 export default function AboutMe() {
   return (
     <>
-      <h1 className="text-xl font-medium mb-8">Why I Build for the Web</h1>
+      <h1 className="text-xl font-medium mb-8">{title}</h1>
 
       <p className="mb-4">
         The web is the most accessible platform ever created. Anyone with a browser can use what you build. That's what pulled me in — the idea that code becomes something real, something people actually use.
@@ -27,7 +31,7 @@ export default function AboutMe() {
       </p>
 
       <p className="mb-4">
-        What began as experimenting with HTML and CSS evolved into full-stack applications. React, Next.js, TypeScript, Node.js — each tool I picked up opened new doors.
+        What began as experimenting with HTML and CSS evolved into full-stack applications. React, Next.js, TypeScript, Node.js — each tool I picked up opened new doors. Eventually the problems stopped fitting inside one language, and that opened a few more.
       </p>
 
       <h2 className="text-lg font-medium mt-12 mb-4">What I Care About</h2>
@@ -35,7 +39,7 @@ export default function AboutMe() {
       <h3 className="text-base font-medium mt-8 mb-2">Privacy</h3>
 
       <p className="mb-4">
-        Privacy isn't a feature — it's a default. When I build something, I start from the assumption that user data is not mine. That's why <a href="https://hypastack.com" className="underline text-zinc-300">Hypastack</a> is built on a true zero-knowledge architecture. No emails, no passwords, no IP address logging.
+        Privacy isn't a feature — it's a default. When I build something, I start from the assumption that user data is not mine. That's why <a href="https://hypastack.com" className="underline text-zinc-300">Hypastack</a> encrypts files in the browser before they ever touch the network. No email, no ads, no tracking.
       </p>
 
       <h3 className="text-base font-medium mt-8 mb-2">Performance</h3>
@@ -55,11 +59,15 @@ export default function AboutMe() {
       <h2 className="text-lg font-medium mt-12 mb-4">What I'm Working On</h2>
 
       <p className="mb-4">
-        Right now, most of my time goes into <strong>Hypastack</strong> — a file sharing platform with a built-in CDN. The goal is simple: make it easy to share files without sacrificing privacy or speed.
+        Right now, most of my time goes into <strong>Hypastack</strong> — a private file sharing platform with a built-in CDN. The goal is simple: make it easy to share files without sacrificing privacy or speed.
       </p>
 
       <p className="mb-4">
-        We operate on a strict zero-knowledge architecture. No Google Analytics, no tracking cookies. Files are securely distributed under random UUIDs with AES-GCM encrypted filenames, and user identities are protected via SHA-256 hashing. Everything runs on self-managed, isolated infrastructure
+        Files are encrypted client-side with AES-256-GCM via the Web Crypto API. The key is generated in your browser and carried in the URL fragment, which browsers never send to the server — so I hold ciphertext and nothing else. Filenames are encrypted at rest under a separate key. Access keys are derived with PBKDF2-HMAC-SHA512 at 100,000 iterations. IP addresses are never stored raw; they're hashed and dropped, and rate limiting keys off an HMAC of the address rather than the address itself.
+      </p>
+
+      <p className="mb-4">
+        Uploads go straight from the browser to storage through presigned URLs, so my server authorizes transfers without carrying them. Files expire, and some burn after a single read. Everything runs on self-managed infrastructure — and the whole thing is <a href="https://github.com/HypaStack/Hypastack-Open-Source" target="_blank" rel="noopener noreferrer" className="underline text-zinc-300">open source under AGPL-3.0</a>, front-end included. A privacy claim you cannot audit is a marketing claim.
       </p>
 
       <hr className="my-8 border-zinc-800" />
@@ -67,12 +75,19 @@ export default function AboutMe() {
       <h2 className="text-lg font-medium mt-12 mb-4">The Stack I Use</h2>
 
       <ul className="list-disc pl-6 mb-4 space-y-2">
-        <li><strong>Framework</strong>: Next.js (App Router)</li>
-        <li><strong>Language</strong>: Always go Typescript</li>
+        <li><strong>Framework</strong>: Next.js 16 (App Router, Turbopack), React 19</li>
+        <li><strong>Language</strong>: TypeScript, always — plus Go and Erlang where Node is the wrong tool</li>
         <li><strong>Styling</strong>: Tailwind CSS v4</li>
-        <li><strong>Infrastructure</strong>: Self-managed VPS, rootless Podman containers behind Caddy, Cloudflare Proxy, and automated CI/CD via GitHub Actions</li>
-        <li><strong>Database & Storage</strong>: PostgreSQL ("pg" npm package) and Cloudflare R2</li>
+        <li><strong>Data</strong>: PostgreSQL via the <code>pg</code> driver, with Redis as an optional cache that the system falls back gracefully without</li>
+        <li><strong>Storage</strong>: Cloudflare R2 (EU jurisdiction), fronted by an edge worker that blocks everything not explicitly allowed</li>
+        <li><strong>Sidecars</strong>: two Go services (key derivation, input sanitization) and one Erlang/OTP service (file expiry and burn-on-read), all over Unix sockets</li>
+        <li><strong>Desktop</strong>: Tauri v2, with a system tray and right-click uploads from the file explorer</li>
+        <li><strong>Infrastructure</strong>: Self-managed VPS, rootless Podman containers behind Caddy, Cloudflare proxy, CI/CD via GitHub Actions</li>
       </ul>
+
+      <p className="mb-4">
+        The polyglot part is not for show. Expensive password hashing does not belong on an event loop, and per-file expiry timers are something Erlang does better than anything else I know of. I <a href="/blog/polyglot-backend" className="underline text-zinc-300">wrote about why</a>.
+      </p>
 
       <hr className="my-8 border-zinc-800" />
 
@@ -84,33 +99,11 @@ export default function AboutMe() {
         That's the loop. Ship something real, improve it relentlessly, and never stop learning.
       </p>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Why I Build for the Web",
-            "description": "My journey into web development — what drives me to build products, and why privacy and performance matter.",
-            "author": {
-              "@type": "Person",
-              "name": "Kiko",
-              "url": "https://usekiko.com"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Kiko",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://r2.hypastack.com/cdn/7xcy45wytecb/kiko.png"
-              }
-            },
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://usekiko.com/blog/aboutme"
-            }
-          })
-        }}
+      <ArticleJsonLd
+        headline={title}
+        description={description}
+        slug="aboutme"
+        datePublished="2026-07-14"
       />
     </>
   )

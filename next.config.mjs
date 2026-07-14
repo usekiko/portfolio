@@ -53,6 +53,18 @@ const nextConfig = {
       },
     ]
   },
+
+  async redirects() {
+    return [
+      // Placeholder post removed; the URL was already in the sitemap, so send
+      // it to the index rather than 404ing anyone who indexed or linked it.
+      {
+        source: '/blog/example-mdx-metadata',
+        destination: '/blog',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig

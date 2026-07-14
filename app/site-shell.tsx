@@ -2,6 +2,7 @@ import type { Viewport } from 'next'
 import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
+import { AVATAR_IMAGE } from './data'
 import { serializeJsonLd, siteJsonLd } from './site-config'
 
 export const viewport: Viewport = {
@@ -33,21 +34,9 @@ export function SiteShell({
           type="font/ttf"
           crossOrigin="anonymous"
         />
-        <link
-          rel="preload"
-          as="image"
-          href="https://r2.hypastack.com/cdn/jxvmdjwe4dnu/hellbound.png"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="https://r2.hypastack.com/cdn/uwxyc1tcnru9/usekiko.webp"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="https://r2.hypastack.com/cdn/95p6jl50f3fj/kiko.jpg"
-        />
+        {/* Header avatar — rendered on every page. Card images are preloaded
+            by the locale page, which is the only place they appear. */}
+        <link rel="preload" as="image" href={AVATAR_IMAGE} />
         <link rel="dns-prefetch" href="https://r2.hypastack.com" />
         <link rel="dns-prefetch" href="https://hypastack.com" />
       </head>

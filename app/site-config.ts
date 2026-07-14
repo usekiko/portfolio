@@ -82,11 +82,9 @@ export function buildSiteMetadata(locale: Locale): Metadata {
       creator: TWITTER_HANDLE,
       site: TWITTER_HANDLE,
     },
-    icons: {
-      icon: 'https://r2.hypastack.com/cdn/wilaqbuqe3xe/favicon.jpg',
-      shortcut: 'https://r2.hypastack.com/cdn/wilaqbuqe3xe/favicon.jpg',
-      apple: 'https://r2.hypastack.com/cdn/wilaqbuqe3xe/favicon.jpg',
-    },
+    // Icons come from the app/icon.png + app/apple-icon.png file convention, so
+    // they are same-origin and crawlable. Google wants a square favicon that is
+    // a multiple of 48px; the old one was a 32x32 JPEG on the CDN.
     category: 'portfolio',
     classification: 'Personal Website',
     other: {

@@ -1,13 +1,14 @@
 import Link from 'next/link'
+import { AVATAR_IMAGE } from './data'
 
 export function Header() {
   return (
     <header className="mb-12 flex items-center justify-between">
       <div className="flex items-center gap-4">
         <img
-          src="https://r2.hypastack.com/cdn/jxvmdjwe4dnu/hellbound.png"
-          alt="usekiko"
-          className="h-16 w-16 mask-squircle object-cover grayscale"
+          src={AVATAR_IMAGE}
+          alt="Kiko"
+          className="h-16 w-16 mask-squircle object-cover"
           loading="eager"
           decoding="sync"
         />

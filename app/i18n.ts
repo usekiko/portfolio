@@ -37,7 +37,7 @@ export const translations: Record<Locale, Translations> = {
     },
     personalProjectDescriptions: {
       'project-usekiko': 'My personal portfolio — the site you\'re on right now.',
-      'project-sugarpetal': 'Pastry website example, sweet, clean UI.',
+      'project-hypamail': 'Burner email service — disposable inboxes, no signup.',
     },
     blogTitles: {
       'blog-1': {
@@ -45,16 +45,20 @@ export const translations: Record<Locale, Translations> = {
         description: 'My journey into web development — what drives me to build products, and why privacy and performance matter.',
       },
       'blog-2': {
-        title: 'Building a High-Performance CDN with Cloudflare R2',
-        description: 'How I architected the file storage and distribution system for Hypastack.',
+        title: 'Why My Node App Hands Work to Go and Erlang',
+        description: 'Hypastack runs three sidecar services alongside Next.js — two in Go, one in Erlang/OTP. What each one does and why Node was the wrong place for it.',
       },
       'blog-3': {
-        title: 'The End of the Loading Spinner',
-        description: 'Aggressive caching, eager loading, and how to make the web feel instantaneous.',
+        title: 'Five Bugs That Bit Me While Building Hypastack',
+        description: 'A cached rejected promise, modulo bias in ID generation, stored XSS on my own CDN, and two features that were never reachable.',
       },
       'blog-4': {
-        title: 'How to Export Metadata from MDX for Next.js SEO',
-        description: 'A guide on exporting metadata from MDX files to leverage Next.js SEO features.',
+        title: 'Building a High-Performance CDN with Cloudflare R2',
+        description: 'Browser-side AES-256-GCM, presigned direct-to-R2 uploads, resumable multipart, and an edge worker that blocks everything by default.',
+      },
+      'blog-5': {
+        title: 'The End of the Loading Spinner',
+        description: 'Skeletons, streamed downloads, and the performance work that actually moved the needle — including the optimization I had to revert.',
       },
     },
   },
@@ -77,7 +81,7 @@ export const translations: Record<Locale, Translations> = {
     },
     personalProjectDescriptions: {
       'project-usekiko': 'Moje osobiste portfolio — strona, na której właśnie jesteś.',
-      'project-sugarpetal': 'Przykładowa strona cukierni, słodki, czysty UI.',
+      'project-hypamail': 'Tymczasowa poczta e-mail — jednorazowe skrzynki, bez rejestracji.',
     },
     blogTitles: {
       'blog-1': {
@@ -85,16 +89,20 @@ export const translations: Record<Locale, Translations> = {
         description: 'Moja droga w web development — co motywuje mnie do tworzenia produktów i dlaczego prywatność i wydajność mają znaczenie.',
       },
       'blog-2': {
-        title: 'Budowanie Wydajnego CDN z Cloudflare R2',
-        description: 'Jak zaprojektowałem system przechowywania i dystrybucji plików dla Hypastack.',
+        title: 'Dlaczego Mój Node Oddaje Pracę Go i Erlangowi',
+        description: 'Hypastack uruchamia trzy usługi pomocnicze obok Next.js — dwie w Go, jedną w Erlang/OTP. Co robi każda z nich i dlaczego Node był złym miejscem na te zadania.',
       },
       'blog-3': {
-        title: 'Koniec ze Spinnerami Ładowania',
-        description: 'Agresywne cache\'owanie, eager loading i jak sprawić, by web działał natychmiastowo.',
+        title: 'Pięć Błędów, Które Popełniłem przy Hypastack',
+        description: 'Zbuforowane odrzucone Promise, bias modulo w generowaniu ID, stored XSS na własnym CDN i dwie funkcje, do których nie dało się dotrzeć.',
       },
       'blog-4': {
-        title: 'Jak Eksportować Metadane z MDX dla Next.js SEO',
-        description: 'Poradnik eksportowania metadanych z plików MDX, by wykorzystać funkcje SEO w Next.js.',
+        title: 'Budowanie Wydajnego CDN z Cloudflare R2',
+        description: 'AES-256-GCM po stronie przeglądarki, presigned uploady prosto do R2, wznawialny multipart i edge worker blokujący wszystko domyślnie.',
+      },
+      'blog-5': {
+        title: 'Koniec ze Spinnerami Ładowania',
+        description: 'Skeletony, strumieniowane pobieranie i optymalizacje, które naprawdę zrobiły różnicę — łącznie z tą, którą musiałem cofnąć.',
       },
     },
   },
