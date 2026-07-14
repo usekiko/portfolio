@@ -156,29 +156,42 @@ export default async function LocalePage({
       <section id="experience">
         <h2 className="mb-5 text-lg font-medium">{t.sectionExperience}</h2>
         <div className="flex flex-col space-y-2">
-          {WORK_EXPERIENCE.map((job) => (
-            <a
-              className="relative block squircle bg-zinc-800/50 p-[1px]"
-              href={job.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={job.id}
-            >
+          {WORK_EXPERIENCE.map((job) => {
+            const content = (
               <div className="relative flex h-full w-full flex-col space-y-1 squircle-inner bg-black p-3">
                 <div className="flex w-full flex-row justify-between">
                   <h3 className="font-normal text-zinc-100">
                     {t.workTitles[job.id] || job.title}
                   </h3>
-                  <p className="text-zinc-400">
+                  <p className="shrink-0 pl-3 text-zinc-400">
                     {job.start} — {job.end}
                   </p>
                 </div>
                 <p className="text-zinc-400">
-                  {job.company}
+                  {t.workDescriptions[job.id] || job.company}
                 </p>
               </div>
-            </a>
-          ))}
+            )
+
+            return job.link ? (
+              <a
+                className="relative block squircle bg-zinc-800/50 p-[1px]"
+                href={job.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={job.id}
+              >
+                {content}
+              </a>
+            ) : (
+              <div
+                className="relative block squircle bg-zinc-800/50 p-[1px]"
+                key={job.id}
+              >
+                {content}
+              </div>
+            )
+          })}
         </div>
       </section>
 

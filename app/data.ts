@@ -11,7 +11,7 @@ type WorkExperience = {
   title: string
   start: string
   end: string
-  link: string
+  link?: string
   id: string
 }
 
@@ -61,20 +61,43 @@ export const PERSONAL_PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    company: 'Hypastack',
-    title: 'Founder & Lead Developer',
-    start: '2026',
+    company: 'Building from HTML & CSS templates and getting comfortable with JavaScript.',
+    title: 'Learning the fundamentals',
+    start: '2023',
+    end: '2024',
+    id: 'work-foundations',
+  },
+  {
+    company:
+      'A Python Flask app with a real backend and user auth — insecure, but it taught me how much I didn\'t know.',
+    title: 'First backend, first auth',
+    start: '2024',
+    end: '2024',
+    id: 'work-flask',
+  },
+  {
+    company: 'Picked up React, Next.js, and how databases actually work.',
+    title: 'Moving to React & Next.js',
+    start: '2024',
+    end: '2025',
+    id: 'work-react',
+  },
+  {
+    company:
+      'Shipped something real with actual users — it worked, but it was hard to maintain and didn\'t scale.',
+    title: 'First project with real users',
+    start: '2025',
+    end: '2025',
+    id: 'work-first-project',
+  },
+  {
+    company:
+      'Rewrote it more times than I can count and hardened it line by line. Fast, reliable, and secure.',
+    title: 'Building Hypastack',
+    start: '2025',
     end: 'Present',
     link: 'https://hypastack.com',
     id: 'work-hypastack',
-  },
-  {
-    company: 'Freelance',
-    title: 'Full-Stack Web Development',
-    start: '2024',
-    end: 'Present',
-    link: 'https://usekiko.com',
-    id: 'work-freelance',
   },
 ]
 

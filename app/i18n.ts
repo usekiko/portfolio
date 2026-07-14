@@ -12,6 +12,7 @@ type Translations = {
   sectionConnect: string
   connectDescription: string
   workTitles: Record<string, string>
+  workDescriptions: Record<string, string>
   projectDescriptions: Record<string, string>
   personalProjectDescriptions: Record<string, string>
   blogTitles: Record<string, { title: string; description: string }>
@@ -29,8 +30,18 @@ export const translations: Record<Locale, Translations> = {
     sectionConnect: 'Connect with Kiko',
     connectDescription: 'Open to freelance work and collaborations. Reach out at',
     workTitles: {
-      'work-hypastack': 'Founder & Lead Developer',
-      'work-freelance': 'Full-Stack Web Development',
+      'work-foundations': 'Learning the fundamentals',
+      'work-flask': 'First backend, first auth',
+      'work-react': 'Moving to React & Next.js',
+      'work-first-project': 'First project with real users',
+      'work-hypastack': 'Building Hypastack',
+    },
+    workDescriptions: {
+      'work-foundations': 'Building from HTML & CSS templates and getting comfortable with JavaScript.',
+      'work-flask': 'A Python Flask app with a real backend and user auth — insecure, but it taught me how much I didn\'t know.',
+      'work-react': 'Picked up React, Next.js, and how databases actually work.',
+      'work-first-project': 'Shipped something real with actual users — it worked, but it was hard to maintain and didn\'t scale.',
+      'work-hypastack': 'Rewrote it more times than I can count and hardened it line by line. Fast, reliable, and secure.',
     },
     projectDescriptions: {
       'project-hypastack': 'Privacy-focused file sharing SaaS with a built-in CDN. Encrypted, fast, temporary.',
@@ -73,8 +84,18 @@ export const translations: Record<Locale, Translations> = {
     sectionConnect: 'Skontaktuj się z Kiko',
     connectDescription: 'Otwarty na zlecenia freelance i współpracę. Napisz na',
     workTitles: {
-      'work-hypastack': 'Założyciel i Główny Developer',
-      'work-freelance': 'Full-Stack Web Development',
+      'work-foundations': 'Poznawanie podstaw',
+      'work-flask': 'Pierwszy backend, pierwsze logowanie',
+      'work-react': 'Przejście na React i Next.js',
+      'work-first-project': 'Pierwszy projekt z prawdziwymi użytkownikami',
+      'work-hypastack': 'Budowanie Hypastack',
+    },
+    workDescriptions: {
+      'work-foundations': 'Tworzenie na bazie szablonów HTML i CSS oraz oswajanie się z JavaScriptem.',
+      'work-flask': 'Aplikacja w Pythonie (Flask) z prawdziwym backendem i logowaniem — niezbyt bezpieczna, ale nauczyła mnie, jak wiele jeszcze nie wiem.',
+      'work-react': 'Nauka Reacta, Next.js i tego, jak naprawdę działają bazy danych.',
+      'work-first-project': 'Wdrożyłem coś prawdziwego z realnymi użytkownikami — działało, ale trudno było to utrzymać i skalować.',
+      'work-hypastack': 'Przepisany więcej razy, niż jestem w stanie zliczyć, i zabezpieczony linijka po linijce. Szybki, niezawodny i bezpieczny.',
     },
     projectDescriptions: {
       'project-hypastack': 'SaaS do udostępniania plików z naciskiem na prywatność i wbudowanym CDN. Szyfrowany, szybki, tymczasowy.',
