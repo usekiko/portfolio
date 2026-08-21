@@ -37,25 +37,25 @@ export const PROJECTS: Project[] = [
     description:
       'Privacy-focused file sharing SaaS with a built-in CDN. Encrypted, fast, temporary.',
     link: 'https://hypastack.com/',
-    image: 'https://r2.hypastack.com/cdn/2mtv3jprebms/hypastack-new.jpg',
+    image: 'https://r2.hypastack.com/cdn/kdszwcn7wzr3/hypav3.webp',
     id: 'project-hypastack',
+  },
+  {
+    name: 'Hypamail',
+    description: 'Burner email service.',
+    link: 'https://hypamail.me/',
+    image: 'https://r2.hypastack.com/cdn/c24k5i02vyja/hypamailv2.webp',
+    id: 'project-hypamail',
   },
 ]
 
 export const PERSONAL_PROJECTS: Project[] = [
   {
     name: 'UseKiko.com',
-    description: 'My personal portfolio — the site you\'re on right now.',
+    description: 'My personal portfolio, the site you\'re on right now.',
     link: 'https://usekiko.com/',
     image: 'https://r2.hypastack.com/cdn/myfmtfngyalf/usekikoimg.webp',
     id: 'project-usekiko',
-  },
-  {
-    name: 'Hypamail',
-    description: 'Burner email service.',
-    link: 'https://hypamail.me/',
-    image: 'https://r2.hypastack.com/cdn/hypamail-asset/hypamail.png',
-    id: 'project-hypamail',
   },
 ]
 
@@ -69,7 +69,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   },
   {
     company:
-      'A Python Flask app with a real backend and user auth — insecure, but it taught me how much I didn\'t know.',
+      'A Python Flask app with a real backend and user auth, insecure, but it taught me how much I didn\'t know.',
     title: 'First backend, first auth',
     start: '2024',
     end: '2024',
@@ -84,7 +84,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   },
   {
     company:
-      'Shipped something real with actual users — it worked, but it was hard to maintain and didn\'t scale.',
+      'Shipped something real with actual users, it worked, but it was hard to maintain and didn\'t scale.',
     title: 'First project with real users',
     start: '2025',
     end: '2025',
@@ -104,13 +104,13 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 export const BLOG_POSTS: BlogPost[] = [
   {
     title: 'Why I Build for the Web',
-    description: 'My journey into web development — what drives me to build products, and why privacy and performance matter.',
+    description: 'My journey into web development, what drives me to build products, and why privacy and performance matter.',
     link: '/blog/aboutme',
     uid: 'blog-1',
   },
   {
     title: 'Why My Node App Hands Work to Go and Erlang',
-    description: 'Hypastack runs three sidecar services alongside Next.js — two in Go, one in Erlang/OTP. What each one does and why Node was the wrong place for it.',
+    description: 'Hypastack runs three sidecar services alongside Next.js, two in Go, one in Erlang/OTP. What each one does and why Node was the wrong place for it.',
     link: '/blog/polyglot-backend',
     uid: 'blog-2',
   },
@@ -128,7 +128,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     title: 'The End of the Loading Spinner',
-    description: 'Skeletons, streamed downloads, and the performance work that actually moved the needle — including the optimization I had to revert.',
+    description: 'Skeletons, streamed downloads, and the performance work that actually moved the needle, including the optimization I had to revert.',
     link: '/blog/end-of-loading-spinners',
     uid: 'blog-5',
   },

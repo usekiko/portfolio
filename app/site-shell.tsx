@@ -34,7 +34,7 @@ export function SiteShell({
           type="font/ttf"
           crossOrigin="anonymous"
         />
-        {/* Header avatar — rendered on every page. Card images are preloaded
+        {/* Header avatar, rendered on every page. Card images are preloaded
             by the locale page, which is the only place they appear. */}
         <link rel="preload" as="image" href={AVATAR_IMAGE} />
         <link rel="dns-prefetch" href="https://r2.hypastack.com" />

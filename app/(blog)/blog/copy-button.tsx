@@ -16,7 +16,7 @@ export function CopyButton() {
       await navigator.clipboard.writeText(window.location.href)
       setCopied(true)
     } catch {
-      // Clipboard access denied (insecure context or permission) — leave the
+      // Clipboard access denied (insecure context or permission), leave the
       // label alone rather than claiming a copy that didn't happen.
     }
   }

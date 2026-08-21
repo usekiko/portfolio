@@ -19,9 +19,9 @@ Hypastack is a privacy-first file sharing SaaS with a built-in CDN. Files are en
 - **Client-Side Encryption**: Files are encrypted in the browser with AES-256-GCM (Web Crypto API). The key is generated client-side and carried only in the URL fragment, which browsers never send to the server. The server holds ciphertext only.
 - **Access Keys**: Derived with PBKDF2-HMAC-SHA512 at 100,000 iterations (NOT bcrypt). Profile data uses a separate AES-GCM master key derived from the access key.
 - **Filenames**: Encrypted at rest under a distinct key.
-- **IP Handling**: Never stored raw — hashed and dropped. Rate limiting keys on HMAC-SHA256 of the caller IP.
+- **IP Handling**: Never stored raw, hashed and dropped. Rate limiting keys on HMAC-SHA256 of the caller IP.
 - **Data Storage**: Cloudflare R2 (EU jurisdiction), zero egress fees. Presigned URLs allow direct browser-to-R2 uploads; files over 50 MB are split into 10 MB chunks, uploaded in parallel, and resumable.
-- **Edge Guard**: A Cloudflare Worker fronts the CDN domain and denies by default — only public `/cdn/` reads and HMAC-presigned `/profiles/` reads are allowed; uploads and pastes are blocked. Served with `nosniff` and a `sandbox` CSP.
+- **Edge Guard**: A Cloudflare Worker fronts the CDN domain and denies by default, only public `/cdn/` reads and HMAC-presigned `/profiles/` reads are allowed; uploads and pastes are blocked. Served with `nosniff` and a `sandbox` CSP.
 - **Expiry / Burn-on-Read**: An Erlang/OTP service (hypasched) arms one lightweight process per pending deletion, reloads all jobs from Postgres on boot, and reconciles against the DB every 6 hours.
 - **Image Stripping**: EXIF metadata (GPS, camera models, etc.) is stripped via Sharp re-encoding before storage.
 - **Cookies**: Strictly necessary only (Auth Token, CSRF Token, Cloudflare Turnstile).
@@ -29,12 +29,12 @@ Hypastack is a privacy-first file sharing SaaS with a built-in CDN. Files are en
 
 ### Hypastack Architecture (polyglot)
 The main app is Next.js 16 with route handlers at `/api/v2/`, backed by PostgreSQL (`pg`) and an optional Redis cache that it degrades gracefully without. Three sidecar services run alongside it over Unix domain sockets:
-- **hypahash (Go)** — PBKDF2-HMAC-SHA512 key derivation, off the Node event loop.
-- **hypasan (Go)** — input sanitization (bluemonday) and magic-byte content sniffing.
-- **hypasched (Erlang/OTP)** — file expiry and burn-on-read via per-file timers in an ETS registry.
+- **hypahash (Go)**, PBKDF2-HMAC-SHA512 key derivation, off the Node event loop.
+- **hypasan (Go)**, input sanitization (bluemonday) and magic-byte content sniffing.
+- **hypasched (Erlang/OTP)**, file expiry and burn-on-read via per-file timers in an ETS registry.
 A Tauri v2 desktop wrapper provides a system tray and right-click uploads.
 
-## Secondary Project: Hypamail (hypamail.me)
+## Privacy-Focused Project: Hypamail (hypamail.me)
 A burner email service.
 
 ## Tech Stack

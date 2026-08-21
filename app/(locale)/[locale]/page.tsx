@@ -9,7 +9,7 @@ import {
 } from '../../data'
 import { getTranslations } from '../../i18n'
 
-/** Every card image, in render order — also what we preload. */
+/** Every card image, in render order, also what we preload. */
 const CARD_IMAGES = [...PROJECTS, ...PERSONAL_PROJECTS].map((p) => p.image)
 
 function ProjectImage({ src, alt }: { src: string; alt: string }) {
@@ -164,7 +164,7 @@ export default async function LocalePage({
                     {t.workTitles[job.id] || job.title}
                   </h3>
                   <p className="shrink-0 pl-3 text-zinc-400">
-                    {job.start} — {job.end}
+                    {job.start}, {job.end}
                   </p>
                 </div>
                 <p className="text-zinc-400">

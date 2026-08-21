@@ -81,7 +81,7 @@
 }
 
 :root {
-  /* Monochrome syntax highlighting — black & white only */
+  /* Monochrome syntax highlighting, black & white only */
   --sh-class: #d4d4d8;
   --sh-sign: #a1a1aa;
   --sh-string: #e4e4e7;

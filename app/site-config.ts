@@ -11,8 +11,8 @@ export const TAGLINE = 'Full-Stack Developer & Product Builder'
 export const TWITTER_HANDLE = '@expertkiko'
 
 export const DESCRIPTIONS: Record<Locale, string> = {
-  en: 'Kiko is a full-stack developer building privacy-first web products. Creator of Hypastack — a secure file sharing platform with CDN hosting. Based in Europe.',
-  pl: 'Kiko to full-stack developer tworzący produkty webowe stawiające prywatność na pierwszym miejscu. Twórca Hypastack — bezpiecznej platformy do udostępniania plików z hostingiem CDN.',
+  en: 'Kiko is a full-stack developer building privacy-first web products. Creator of Hypastack, a secure file sharing platform with CDN hosting. Based in Europe.',
+  pl: 'Kiko to full-stack developer tworzący produkty webowe stawiające prywatność na pierwszym miejscu. Twórca Hypastack, bezpiecznej platformy do udostępniania plików z hostingiem CDN.',
 }
 
 const KEYWORDS =
@@ -48,8 +48,8 @@ export function buildSiteMetadata(locale: Locale): Metadata {
       languages: languageAlternates(),
     },
     title: {
-      default: `${SITE_NAME} — ${TAGLINE}`,
-      template: `%s — ${SITE_NAME}`,
+      default: `${SITE_NAME}, ${TAGLINE}`,
+      template: `%s, ${SITE_NAME}`,
     },
     description,
     keywords: KEYWORDS,
@@ -72,12 +72,12 @@ export function buildSiteMetadata(locale: Locale): Metadata {
       locale: locale === 'pl' ? 'pl_PL' : 'en_US',
       url,
       siteName: SITE_NAME,
-      title: `${SITE_NAME} — ${TAGLINE}`,
+      title: `${SITE_NAME}, ${TAGLINE}`,
       description,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${SITE_NAME} — ${TAGLINE}`,
+      title: `${SITE_NAME}, ${TAGLINE}`,
       description,
       creator: TWITTER_HANDLE,
       site: TWITTER_HANDLE,

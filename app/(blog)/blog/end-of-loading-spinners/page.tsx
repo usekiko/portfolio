@@ -31,7 +31,7 @@ export default function EndOfLoadingSpinners() {
       <h2 className="text-lg font-medium mt-12 mb-4">Skeletons that match the real DOM</h2>
 
       <p className="mb-4">
-        The drive and CDN pages now render <strong>skeletons shaped like the content that is coming</strong> — same grid, same tile dimensions, same spacing. When the data lands, the skeleton is replaced by something the same size, so nothing jumps.
+        The drive and CDN pages now render <strong>skeletons shaped like the content that is coming</strong>, same grid, same tile dimensions, same spacing. When the data lands, the skeleton is replaced by something the same size, so nothing jumps.
       </p>
 
       <p className="mb-4">
@@ -39,17 +39,17 @@ export default function EndOfLoadingSpinners() {
       </p>
 
       <p className="mb-4">
-        And a skeleton has to actually mount. Mine did not, for a while — the manage page declared its skeleton at the page level, but Next renders the layout first, so during navigation the skeleton had not mounted yet and never appeared. It had to move up into the layout to exist at all.
+        And a skeleton has to actually mount. Mine did not, for a while, the manage page declared its skeleton at the page level, but Next renders the layout first, so during navigation the skeleton had not mounted yet and never appeared. It had to move up into the layout to exist at all.
       </p>
 
       <h2 className="text-lg font-medium mt-12 mb-4">Real progress, not fake progress</h2>
 
       <p className="mb-4">
-        Downloads on <code>/d/</code> used to buffer the whole file into memory and then hand it over. For a large file that meant a long, silent nothing — and a progress bar that could only be theatre, because there was no progress to report.
+        Downloads on <code>/d/</code> used to buffer the whole file into memory and then hand it over. For a large file that meant a long, silent nothing, and a progress bar that could only be theatre, because there was no progress to report.
       </p>
 
       <p className="mb-4">
-        Streaming the response fixed both problems at once: big files stopped ballooning memory, and the progress bar became a measurement instead of an animation. Bulk deletes and folder wipes got the same treatment — they now report what they have actually done, and they fail loudly instead of silently.
+        Streaming the response fixed both problems at once: big files stopped ballooning memory, and the progress bar became a measurement instead of an animation. Bulk deletes and folder wipes got the same treatment, they now report what they have actually done, and they fail loudly instead of silently.
       </p>
 
       <p className="mb-4">
@@ -63,7 +63,7 @@ export default function EndOfLoadingSpinners() {
       </p>
 
       <p className="mb-4">
-        The landing page had a WebGL shader drawing ambient rays behind the hero. It looked genuinely good. It also burned CPU on <strong>every page load</strong>, for every visitor, including the ones who scrolled past it in half a second — and it dragged in a rendering library to do so. Cutting the shader cut the dependency, the CPU cost, and the jank on low-end phones, and the page looks about 95% as good.
+        The landing page had a WebGL shader drawing ambient rays behind the hero. It looked genuinely good. It also burned CPU on <strong>every page load</strong>, for every visitor, including the ones who scrolled past it in half a second, and it dragged in a rendering library to do so. Cutting the shader cut the dependency, the CPU cost, and the jank on low-end phones, and the page looks about 95% as good.
       </p>
 
       <p className="mb-4">
@@ -77,7 +77,7 @@ export default function EndOfLoadingSpinners() {
       </p>
 
       <p className="mb-4">
-        Codepoint-based subsetting is only correct for the icons that existed when you generated it. Add one later without regenerating, and you ship an invisible blank square — no error, no warning, no CI failure. I had bought 5 MB at the price of a permanent trap under every future icon, and that is a bad price even though the number looked incredible.
+        Codepoint-based subsetting is only correct for the icons that existed when you generated it. Add one later without regenerating, and you ship an invisible blank square, no error, no warning, no CI failure. I had bought 5 MB at the price of a permanent trap under every future icon, and that is a bad price even though the number looked incredible.
       </p>
 
       <p className="mb-4">
@@ -89,7 +89,7 @@ export default function EndOfLoadingSpinners() {
       <h2 className="text-lg font-medium mt-12 mb-4">What is left</h2>
 
       <p className="mb-4">
-        Preload what you will definitely need, on the routes where you will actually need it. Lazy-load what is below the fold. Cache the expensive derived things — rendered OG images now come out of Redis instead of refetching the logo on every render. Let immutable content be cached forever, because it is immutable.
+        Preload what you will definitely need, on the routes where you will actually need it. Lazy-load what is below the fold. Cache the expensive derived things, rendered OG images now come out of Redis instead of refetching the logo on every render. Let immutable content be cached forever, because it is immutable.
       </p>
 
       <p className="mb-4">

@@ -3,7 +3,7 @@ import { SITE_NAME, TAGLINE } from './site-config'
 
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
-export const alt = `${SITE_NAME} — ${TAGLINE}`
+export const alt = `${SITE_NAME}, ${TAGLINE}`
 
 /**
  * Generated at build time so the OG/Twitter cards always resolve. The previous

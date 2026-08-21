@@ -31,17 +31,17 @@ export default function BuildingACdn() {
       </p>
 
       <p className="mb-4">
-        The bucket is in the <strong>EU jurisdiction</strong>, which is a deliberate choice rather than a default — it keeps object data inside a legal regime I can reason about.
+        The bucket is in the <strong>EU jurisdiction</strong>, which is a deliberate choice rather than a default, it keeps object data inside a legal regime I can reason about.
       </p>
 
       <h2 className="text-lg font-medium mt-12 mb-4">The server never sees your file</h2>
 
       <p className="mb-4">
-        Files are encrypted <strong>in the browser</strong> with AES-256-GCM via the Web Crypto API, before a single byte crosses the network. The key is generated client-side and lives in the <strong>URL fragment</strong> — the part after the <code>#</code>, which browsers never send to the server.
+        Files are encrypted <strong>in the browser</strong> with AES-256-GCM via the Web Crypto API, before a single byte crosses the network. The key is generated client-side and lives in the <strong>URL fragment</strong>, the part after the <code>#</code>, which browsers never send to the server.
       </p>
 
       <p className="mb-4">
-        That is the whole trick, and it is worth being precise about what it buys: when you share a Hypastack link, the key travels in the half of the URL my server cannot see. I hold ciphertext and nothing else. Lose the link and the file is unrecoverable — by you, and by me, which is the point.
+        That is the whole trick, and it is worth being precise about what it buys: when you share a Hypastack link, the key travels in the half of the URL my server cannot see. I hold ciphertext and nothing else. Lose the link and the file is unrecoverable, by you, and by me, which is the point.
       </p>
 
       <p className="mb-4">
@@ -77,13 +77,13 @@ export default function BuildingACdn() {
       </p>
 
       <p className="mb-4">
-        Everything served from that host also carries <code>X-Content-Type-Options: nosniff</code> and a <code>sandbox</code> CSP — because a CDN that serves user-uploaded bytes is one content-type guess away from executing user-uploaded JavaScript on your own domain. I <a href="/blog/bugs-that-bit-me" className="underline text-zinc-300">wrote about getting that wrong</a>.
+        Everything served from that host also carries <code>X-Content-Type-Options: nosniff</code> and a <code>sandbox</code> CSP, because a CDN that serves user-uploaded bytes is one content-type guess away from executing user-uploaded JavaScript on your own domain. I <a href="/blog/bugs-that-bit-me" className="underline text-zinc-300">wrote about getting that wrong</a>.
       </p>
 
       <h2 className="text-lg font-medium mt-12 mb-4">Cache rules everything around me</h2>
 
       <p className="mb-4">
-        Files on Hypastack are immutable — created once, never updated, eventually deleted. Immutability means the cache headers can be as aggressive as they get:
+        Files on Hypastack are immutable, created once, never updated, eventually deleted. Immutability means the cache headers can be as aggressive as they get:
       </p>
 
       <pre className="bg-zinc-900 p-4 rounded-xl overflow-x-auto text-sm mb-4">
