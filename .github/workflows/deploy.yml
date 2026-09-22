@@ -1,28 +1,31 @@
-name: Deploy Portfolio
+name: Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths-ignore:
       - 'README.md'
       - '.gitignore'
 
+# one deploy at a time, a newer push waits for the running one
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - name: Deploy to VPS
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          port: ${{ secrets.SSH_PORT }}
-          username: ubuntu
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            export XDG_RUNTIME_DIR=/run/user/$(id -u)
-            cd ~/portfolio
-            git fetch origin
-            git reset --hard origin/main
-            podman build -t localhost/portfolio:latest .
-            systemctl --user restart portfolio.service
-            podman image prune -f
+      # the key is pinned server-side to the deploy script, it can't run anything else
+      - name: Deploy to kamyk-vps
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/deploy
+          ssh -i ~/.ssh/deploy -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=yes -o ConnectTimeout=20 \
+            ubuntu@${{ secrets.SERVER_IP }} deploy
