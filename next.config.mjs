@@ -5,7 +5,8 @@
 // 'unsafe-inline' allowances. No third-party scripts are loaded.
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  // react dev mode needs eval for callstacks, never shipped to prod
+  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https://r2.hypastack.com https://s1.hetaku.dev",
   "font-src 'self'",
