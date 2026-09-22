@@ -11,16 +11,16 @@ export function Header() {
           className="absolute inset-0 h-full w-full rounded-t-3xl object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-linear-to-b from-transparent from-40% to-black" />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent from-70% to-black" />
         <img
           src={AVATAR_IMAGE}
           alt="Kiko"
-          className="absolute bottom-0 left-4 h-16 w-16 translate-y-1/2 mask-squircle object-cover"
+          className="absolute bottom-0 left-4 h-32 w-32 translate-y-1/2 mask-squircle object-cover"
           loading="eager"
           decoding="sync"
         />
       </div>
-      <div className="mt-2 pl-24">
+      <div className="mt-18 pl-4">
         <Link href="/" className="text-xl font-normal text-white">
           Kiko
         </Link>
