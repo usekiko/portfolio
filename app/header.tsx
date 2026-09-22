@@ -20,7 +20,7 @@ export function Header() {
           tabIndex={-1}
           className="pointer-events-none absolute inset-0 h-full w-full object-cover select-none"
         />
-        <div className="absolute inset-x-0 bottom-0 h-12 bg-linear-to-b from-transparent to-black/60" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-b from-transparent to-black" />
       </div>
       <div className="relative -mt-16 px-3 pb-5">
         <div className="w-fit mask-squircle bg-black p-2">
