@@ -72,16 +72,16 @@ export default async function LocalePage({
   const t = getTranslations(locale)
 
   return (
-    <main className="space-y-24">
+    <main className="space-y-16">
       {/* Hoisted into <head> by React. Keeps the cards spinner-free without
           preloading them on routes that never render them. */}
       {CARD_IMAGES.map((src) => (
         <link key={src} rel="preload" as="image" href={src} />
       ))}
 
-      <section id="hero">
+      <section id="hero" className="mb-10">
         <div className="flex-1">
-          <h1 className="mb-4 text-2xl font-normal tracking-tight text-white">
+          <h1 className="mb-1 text-2xl font-normal tracking-tight text-white">
             {t.heroTitle}
           </h1>
           <p className="text-zinc-400">
