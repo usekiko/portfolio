@@ -41,7 +41,7 @@ export function SiteShell({
         <link rel="dns-prefetch" href="https://s1.hetaku.dev" />
         <link rel="dns-prefetch" href="https://hypastack.com" />
       </head>
-      <body className="bg-black tracking-tight text-white antialiased">
+      <body className="bg-black text-white antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteJsonLd) }}
