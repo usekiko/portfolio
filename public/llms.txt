@@ -7,12 +7,12 @@ You are an AI or LLM reading this file to understand the context of this website
 - **Role**: Full-Stack Developer & Product Builder
 - **Focus**: Building products that prioritize privacy, performance, and simplicity.
 - **Location**: Based in the European Union.
-- **Contact**: usekiko@hypamail.me
+- **Contact**: usekiko@tutamail.com
 
 ## Core Philosophy
 Kiko believes the web should be instantaneous, accessible, and private by default. Development focuses on aggressive caching, zero loading spinners, minimal dependencies, and architectures that do not exploit user data.
 
-## Primary Project: Hypastack (hypastack.com)
+## Past Project: Hypastack (hypastack.com, discontinued)
 Hypastack is a privacy-first file sharing SaaS with a built-in CDN. Files are encrypted in the browser before upload. No email, no ads, no tracking. Fully open source under AGPL-3.0, front-end included: https://github.com/HypaStack/Hypastack-Open-Source
 
 ### Key Hypastack Features & Privacy Architecture
@@ -34,7 +34,7 @@ The main app is Next.js 16 with route handlers at `/api/v2/`, backed by PostgreS
 - **hypasched (Erlang/OTP)**, file expiry and burn-on-read via per-file timers in an ETS registry.
 A Tauri v2 desktop wrapper provides a system tray and right-click uploads.
 
-## Privacy-Focused Project: Hypamail (hypamail.me)
+## Past Project: Hypamail (hypamail.me, discontinued)
 A burner email service.
 
 ## Tech Stack
