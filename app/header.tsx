@@ -22,12 +22,12 @@ export function Header() {
         />
         <div className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-b from-transparent to-black" />
       </div>
-      <div className="relative -mt-14 flex flex-col items-center pb-4 text-center">
+      <div className="relative -mt-20 flex flex-col items-center pb-4 text-center">
         <div className="mask-squircle bg-black p-2">
           <img
             src={AVATAR_IMAGE}
             alt="Kiko"
-            className="h-24 w-24 mask-squircle object-cover"
+            className="h-28 w-28 mask-squircle object-cover"
             loading="eager"
             decoding="sync"
           />
