@@ -81,7 +81,7 @@ export default async function LocalePage({
 
       <section id="hero">
         <div className="flex-1">
-          <h1 className="mb-4 text-2xl font-medium tracking-tight text-white">
+          <h1 className="mb-4 text-2xl font-normal tracking-tight text-white">
             {t.heroTitle}
           </h1>
           <p className="text-zinc-400">
@@ -100,7 +100,7 @@ export default async function LocalePage({
       </section>
 
       <section id="privacy">
-        <h2 className="mb-5 text-lg font-medium">{t.sectionPrivacy}</h2>
+        <h2 className="mb-5 text-lg font-normal">{t.sectionPrivacy}</h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {PROJECTS.map((project) => (
             <div key={project.name} className="space-y-2">
@@ -111,7 +111,7 @@ export default async function LocalePage({
               </div>
               <div className="px-1">
                 <a
-                  className="font-base inline-block font-[450] text-zinc-50"
+                  className="inline-block font-normal text-zinc-50"
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -128,7 +128,7 @@ export default async function LocalePage({
       </section>
 
       <section id="personal">
-        <h2 className="mb-5 text-lg font-medium">{t.sectionPersonal}</h2>
+        <h2 className="mb-5 text-lg font-normal">{t.sectionPersonal}</h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {PERSONAL_PROJECTS.map((project) => (
             <div key={project.name} className="space-y-2">
@@ -139,7 +139,7 @@ export default async function LocalePage({
               </div>
               <div className="px-1">
                 <a
-                  className="font-base inline-block font-[450] text-zinc-50"
+                  className="inline-block font-normal text-zinc-50"
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -156,7 +156,7 @@ export default async function LocalePage({
       </section>
 
       <section id="experience">
-        <h2 className="mb-5 text-lg font-medium">{t.sectionExperience}</h2>
+        <h2 className="mb-5 text-lg font-normal">{t.sectionExperience}</h2>
         <div className="flex flex-col space-y-2">
           {WORK_EXPERIENCE.map((job) => {
             const content = (
@@ -199,7 +199,7 @@ export default async function LocalePage({
 
       {BLOG_POSTS.length > 0 && (
         <section id="blog">
-          <h2 className="mb-3 text-lg font-medium">{t.sectionBlog}</h2>
+          <h2 className="mb-3 text-lg font-normal">{t.sectionBlog}</h2>
           <div className="flex flex-col space-y-2">
             {BLOG_POSTS.map((post) => (
               <Link
@@ -222,7 +222,7 @@ export default async function LocalePage({
       )}
 
       <section id="connect">
-        <h2 className="mb-5 text-lg font-medium">{t.sectionConnect}</h2>
+        <h2 className="mb-5 text-lg font-normal">{t.sectionConnect}</h2>
         <p className="mb-5 text-zinc-400">
           {t.connectDescription}{' '}
           <a className="underline text-zinc-300 decoration-zinc-600 underline-offset-2" href={`mailto:${EMAIL}`}>

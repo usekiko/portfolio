@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function PolyglotBackend() {
   return (
     <>
-      <h1 className="text-xl font-medium mb-8">{title}</h1>
+      <h1 className="text-xl font-normal mb-8">{title}</h1>
 
       <p className="mb-4">
         Hypastack started as a single Next.js app. It still mostly is, the API lives in route handlers under <code>/api/v2/</code>, and that is where the product logic belongs. But three jobs kept making Node look bad at what Node is bad at, so they moved out into sidecar services: two written in Go, one in Erlang/OTP.
@@ -28,7 +28,7 @@ export default function PolyglotBackend() {
 
       <hr className="my-8 border-zinc-800" />
 
-      <h2 className="text-lg font-medium mt-12 mb-4">hypahash, key derivation (Go)</h2>
+      <h2 className="text-lg font-normal mt-12 mb-4">hypahash, key derivation (Go)</h2>
 
       <p className="mb-4">
         Access keys are hashed with <strong>PBKDF2-HMAC-SHA512 at 100,000 iterations</strong>. That is deliberately expensive, which is the entire point of a password hash, and it is exactly the kind of work you do not want on a single-threaded event loop. A handful of concurrent logins is enough to make every unrelated request wait behind the CPU burn.
@@ -52,7 +52,7 @@ hash = "<salt>:<hex(key)>"`}</code>
         PBKDF2 is implemented in-tree rather than pulled from a module, so the build has zero dependency fetches and the algorithm is pinned to something I can read.
       </p>
 
-      <h2 className="text-lg font-medium mt-12 mb-4">hypasan, sanitization and sniffing (Go)</h2>
+      <h2 className="text-lg font-normal mt-12 mb-4">hypasan, sanitization and sniffing (Go)</h2>
 
       <p className="mb-4">
         Every user-supplied note runs through a scrubbing pipeline: trim, strip all HTML tags but keep the text, strip injection patterns (control characters, protocol handlers, NoSQL operators, template markers, SQL keywords, null bytes), then clamp to a max length. In Node that meant JSDOM and DOMPurify, a heavyweight DOM implementation booted up to throw away every tag it finds.
@@ -66,7 +66,7 @@ hash = "<salt>:<hex(key)>"`}</code>
         The same service also does <strong>magic-byte content sniffing</strong>. It takes the head bytes of an upload and answers "what actually is this file", independent of whatever extension or MIME type the client claimed. Notably, hypasan only <em>detects</em>, the allow/block decision stays in Node, in one constants file. A detector that also enforces policy is a detector whose policy you will eventually forget to audit.
       </p>
 
-      <h2 className="text-lg font-medium mt-12 mb-4">hypasched, expiry and burn-on-read (Erlang/OTP)</h2>
+      <h2 className="text-lg font-normal mt-12 mb-4">hypasched, expiry and burn-on-read (Erlang/OTP)</h2>
 
       <p className="mb-4">
         This is the one that actually needed a different language.
@@ -98,7 +98,7 @@ hash = "<salt>:<hex(key)>"`}</code>
 
       <hr className="my-8 border-zinc-800" />
 
-      <h2 className="text-lg font-medium mt-12 mb-4">Was it worth it?</h2>
+      <h2 className="text-lg font-normal mt-12 mb-4">Was it worth it?</h2>
 
       <p className="mb-4">
         For hypasched, unambiguously, the alternative was a sweep loop that could not honour short expiries. For the two Go services it is a narrower call: they buy real CPU headroom, and they cost me two more things to deploy and keep in sync with the Node implementations they mirror.

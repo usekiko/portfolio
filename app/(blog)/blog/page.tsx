@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function BlogIndex() {
   return (
     <main className="mt-24 pb-20">
-      <h1 className="text-xl font-medium mb-8">Technical Writing</h1>
+      <h1 className="text-xl font-normal mb-8">Technical Writing</h1>
       <p className="text-zinc-400 mb-12">
         Thoughts on web development, building high-performance systems, and prioritizing user privacy.
       </p>
@@ -26,7 +26,7 @@ export default function BlogIndex() {
             href={post.link}
           >
             <div className="flex flex-col space-y-2">
-              <h2 className="font-medium text-zinc-100 group-hover:underline decoration-zinc-600 underline-offset-4">
+              <h2 className="font-normal text-zinc-100 group-hover:underline decoration-zinc-600 underline-offset-4">
                 {post.title}
               </h2>
               <p className="text-zinc-400">

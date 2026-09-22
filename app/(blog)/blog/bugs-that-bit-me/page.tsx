@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function BugsThatBitMe() {
   return (
     <>
-      <h1 className="text-xl font-medium mb-8">{title}</h1>
+      <h1 className="text-xl font-normal mb-8">{title}</h1>
 
       <p className="mb-4">
         Writing about architecture is easy because architecture is the part you chose. Bugs are the part that chose you. These are five real ones from Hypastack's history, what broke, why, and what I actually changed.
@@ -24,7 +24,7 @@ export default function BugsThatBitMe() {
 
       <hr className="my-8 border-zinc-800" />
 
-      <h2 className="text-lg font-medium mt-12 mb-4">1. The cached promise that poisoned every API call</h2>
+      <h2 className="text-lg font-normal mt-12 mb-4">1. The cached promise that poisoned every API call</h2>
 
       <p className="mb-4">
         Hypastack's client fetches a short-lived proxy token before hitting the API. To avoid requesting one per call, I memoized the in-flight promise, the standard trick:
@@ -58,7 +58,7 @@ function getProxyToken() {
         <strong>The lesson:</strong> caching a promise caches the failure too. If you memoize an async result, decide explicitly what happens when it rejects, because the default is "cache the error until the tab closes".
       </p>
 
-      <h2 className="text-lg font-medium mt-12 mb-4">2. Modulo bias in my share IDs</h2>
+      <h2 className="text-lg font-normal mt-12 mb-4">2. Modulo bias in my share IDs</h2>
 
       <p className="mb-4">
         Share IDs are generated from random bytes mapped onto an alphabet. The natural way to write that is a modulo:
@@ -80,7 +80,7 @@ function getProxyToken() {
         <strong>The lesson:</strong> "it looks random" is not an argument. This is the kind of bug that never produces a bug report, it just makes your IDs slightly cheaper to guess than you believe they are.
       </p>
 
-      <h2 className="text-lg font-medium mt-12 mb-4">3. Stored XSS on my own CDN domain</h2>
+      <h2 className="text-lg font-normal mt-12 mb-4">3. Stored XSS on my own CDN domain</h2>
 
       <p className="mb-4">
         Hypastack serves user files from <code>r2.hypastack.com</code>. If a user uploads an HTML file and the browser renders it as HTML, that page runs JavaScript <em>on my domain</em>. Same-origin against anything else served from that host. That is textbook stored XSS, and I shipped it.
@@ -103,7 +103,7 @@ function getProxyToken() {
         <strong>The lesson:</strong> if you serve user-controlled bytes, serve them from an origin where being XSSed is boring.
       </p>
 
-      <h2 className="text-lg font-medium mt-12 mb-4">4. Two features nobody could reach</h2>
+      <h2 className="text-lg font-normal mt-12 mb-4">4. Two features nobody could reach</h2>
 
       <p className="mb-4">
         Two separate discoveries, same shape.
@@ -121,7 +121,7 @@ function getProxyToken() {
         <strong>The lesson:</strong> code that runs is not the same as code that is reachable. I now run <code>knip</code> over the project specifically to find things nothing points at, and it keeps finding them.
       </p>
 
-      <h2 className="text-lg font-medium mt-12 mb-4">5. The optimization I had to revert</h2>
+      <h2 className="text-lg font-normal mt-12 mb-4">5. The optimization I had to revert</h2>
 
       <p className="mb-4">
         I subset the Material Symbols icon font from <strong>5.3 MB down to 14 KB</strong> by keeping only the codepoints actually used. Enormous win. I reverted it.

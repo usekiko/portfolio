@@ -24,7 +24,7 @@ export function CopyButton() {
   return (
     <button
       onClick={copy}
-      className="font-base flex items-center gap-1 text-center text-sm text-zinc-400"
+      className="flex items-center gap-1 text-center text-sm text-zinc-400"
       type="button"
     >
       <span>{copied ? 'Copied' : 'Copy'}</span>
