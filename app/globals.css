@@ -1,6 +1,10 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 @custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-instrument-sans), system-ui, sans-serif;
+}
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -21,7 +25,6 @@
   html, body {
     background-color: #000000;
     color: #ffffff;
-    font-family: var(--font-instrument-sans), system-ui, sans-serif;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE/Edge */
   }
@@ -29,6 +32,11 @@
   html::-webkit-scrollbar,
   body::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
+  }
+
+  /* inline code stays in the body font, only pre blocks need monospace alignment */
+  :not(pre) > code {
+    font-family: inherit;
   }
 
   ::selection {
