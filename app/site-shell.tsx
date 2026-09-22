@@ -3,7 +3,8 @@ import { Instrument_Sans } from 'next/font/google'
 import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
-import { AVATAR_IMAGE, BANNER_IMAGE } from './data'
+import { Navbar } from './navbar'
+import { AVATAR_IMAGE } from './data'
 import { serializeJsonLd, siteJsonLd } from './site-config'
 
 const instrumentSans = Instrument_Sans({
@@ -33,10 +34,9 @@ export function SiteShell({
   return (
     <html lang={lang} className={`dark ${instrumentSans.variable}`}>
       <head>
-        {/* Header images, rendered on every page. Card images are preloaded
+        {/* Header avatar, rendered on every page. Card images are preloaded
             by the locale page, which is the only place they appear. */}
         <link rel="preload" as="image" href={AVATAR_IMAGE} />
-        <link rel="preload" as="image" href={BANNER_IMAGE} />
         <link rel="dns-prefetch" href="https://r2.hypastack.com" />
         <link rel="dns-prefetch" href="https://s1.hetaku.dev" />
         <link rel="dns-prefetch" href="https://hypastack.com" />
@@ -46,6 +46,8 @@ export function SiteShell({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteJsonLd) }}
         />
+
+        <Navbar lang={lang} />
 
         <div className="flex min-h-screen w-full flex-col">
           <div className="relative mx-auto w-full max-w-screen-md flex-1 px-4 pt-20">
