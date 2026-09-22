@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 
-// Assets (font, images) are served from the R2 CDN; JSON-LD is emitted as an
+// Assets (font, images) are served from the R2 and Hetaku CDNs; JSON-LD is emitted as an
 // inline <script>, and Next injects inline bootstrap styles/scripts, hence the
 // 'unsafe-inline' allowances. No third-party scripts are loaded.
 const contentSecurityPolicy = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https://r2.hypastack.com",
+  "img-src 'self' data: https://r2.hypastack.com https://s1.hetaku.dev",
   "font-src 'self' https://r2.hypastack.com",
   "connect-src 'self'",
   "frame-ancestors 'none'",
