@@ -42,3 +42,6 @@ next-env.d.ts
 
 # User excluded
 app.js
+
+# design reference, not part of the site
+/new-kiko/

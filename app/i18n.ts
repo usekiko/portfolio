@@ -3,6 +3,9 @@ export type Locale = (typeof SUPPORTED_LOCALES)[number]
 
 type Translations = {
   navContact: string
+  jobTitle: string
+  skills: { top: string; left: string; right: string; bottom: string }
+  contributions: string
   heroTitle: string
   heroDescription: string
   discontinued: string
@@ -22,15 +25,25 @@ type Translations = {
 export const translations: Record<Locale, Translations> = {
   en: {
     navContact: 'Contact',
+    jobTitle: 'Developer & Builder',
+    skills: {
+      top: 'Backend Systems',
+      left: 'Privacy',
+      right: 'Performance',
+      bottom: 'Shipping Products\n& Self-Hosting',
+    },
+    contributions: '{count} contributions in the last year',
     heroTitle: 'Backend systems that simply work.',
-    heroDescription: 'Good software gets out of the way. I build things that load fast and last.',
+    heroDescription:
+      'Good software gets out of the way. I build things that load fast and last.',
     discontinued: 'Discontinued',
-    sectionPrivacy: 'Privacy-Focused Web Projects',
+    sectionPrivacy: 'Privacy-friendly web projects',
     sectionPersonal: 'Personal',
     sectionExperience: 'How I Got Here',
     sectionBlog: 'Technical Writing',
     sectionConnect: 'Connect with Kiko',
-    connectDescription: 'Open to freelance work and collaborations. Reach out at',
+    connectDescription:
+      'Open to freelance work and collaborations. Reach out at',
     workTitles: {
       'work-foundations': 'Learning the fundamentals',
       'work-flask': 'First backend, first auth',
@@ -40,49 +53,72 @@ export const translations: Record<Locale, Translations> = {
       'work-next': 'Thinking of something new',
     },
     workDescriptions: {
-      'work-foundations': 'Building from HTML & CSS templates and getting comfortable with JavaScript.',
-      'work-flask': 'A Python Flask app with a real backend and user auth, insecure, but it taught me how much I didn\'t know.',
-      'work-react': 'Picked up React, Next.js, and how databases actually work.',
-      'work-first-project': 'Shipped something real with actual users, it worked, but it was hard to maintain and didn\'t scale.',
-      'work-hypastack': 'Rewrote it more times than I can count and hardened it line by line. Fast, reliable, and secure.',
-      'work-next': 'Hypastack and Hypamail both got discontinued, so I\'m thinking of a new project. Let me know if you have any ideas.',
+      'work-foundations':
+        'Building from HTML & CSS templates and getting comfortable with JavaScript.',
+      'work-flask':
+        "A Python Flask app with a real backend and user auth, insecure, but it taught me how much I didn't know.",
+      'work-react':
+        'Picked up React, Next.js, and how databases actually work.',
+      'work-first-project':
+        "Shipped something real with actual users, it worked, but it was hard to maintain and didn't scale.",
+      'work-hypastack':
+        'Rewrote it more times than I can count and hardened it line by line. Fast, reliable, and secure.',
+      'work-next':
+        "Hypastack and Hypamail both got discontinued, so I'm thinking of a new project. Let me know if you have any ideas.",
     },
     projectDescriptions: {
-      'project-hypastack': 'Privacy-focused file sharing SaaS with a built-in CDN. Encrypted, fast, temporary.',
+      'project-hetaku':
+        "Global CDN that doesn't sell your data, doesn't show ads, and doesn't track you for profit.",
+      'project-hypastack':
+        'Privacy-focused file sharing SaaS with a built-in CDN. Encrypted, fast, temporary.',
       'project-hypamail': 'Burner email service.',
     },
     personalProjectDescriptions: {
-      'project-usekiko': 'My personal portfolio, the site you\'re on right now.',
+      'project-usekiko': "My personal portfolio, the site you're on right now.",
     },
     blogTitles: {
       'blog-1': {
         title: 'Why I Build for the Web',
-        description: 'My journey into web development, what drives me to build products, and why privacy and performance matter.',
+        description:
+          'My journey into web development, what drives me to build products, and why privacy and performance matter.',
       },
       'blog-2': {
         title: 'Why My Node App Hands Work to Go and Erlang',
-        description: 'Hypastack runs three sidecar services alongside Next.js, two in Go, one in Erlang/OTP. What each one does and why Node was the wrong place for it.',
+        description:
+          'Hypastack runs three sidecar services alongside Next.js, two in Go, one in Erlang/OTP. What each one does and why Node was the wrong place for it.',
       },
       'blog-3': {
         title: 'Five Bugs That Bit Me While Building Hypastack',
-        description: 'A cached rejected promise, modulo bias in ID generation, stored XSS on my own CDN, and two features that were never reachable.',
+        description:
+          'A cached rejected promise, modulo bias in ID generation, stored XSS on my own CDN, and two features that were never reachable.',
       },
       'blog-4': {
         title: 'Building a High-Performance CDN with Cloudflare R2',
-        description: 'Browser-side AES-256-GCM, presigned direct-to-R2 uploads, resumable multipart, and an edge worker that blocks everything by default.',
+        description:
+          'Browser-side AES-256-GCM, presigned direct-to-R2 uploads, resumable multipart, and an edge worker that blocks everything by default.',
       },
       'blog-5': {
         title: 'The End of the Loading Spinner',
-        description: 'Skeletons, streamed downloads, and the performance work that actually moved the needle, including the optimization I had to revert.',
+        description:
+          'Skeletons, streamed downloads, and the performance work that actually moved the needle, including the optimization I had to revert.',
       },
     },
   },
   pl: {
     navContact: 'Kontakt',
+    jobTitle: 'Developer & Builder',
+    skills: {
+      top: 'Systemy Backendowe',
+      left: 'Prywatność',
+      right: 'Wydajność',
+      bottom: 'Dowożenie Produktów\n& Self-Hosting',
+    },
+    contributions: '{count} kontrybucji w ostatnim roku',
     heroTitle: 'Systemy backendowe, które po prostu działają.',
-    heroDescription: 'Dobre oprogramowanie nie wchodzi w drogę. Tworzę rzeczy, które działają szybko i zostają na długo.',
+    heroDescription:
+      'Dobre oprogramowanie nie wchodzi w drogę. Tworzę rzeczy, które działają szybko i zostają na długo.',
     discontinued: 'Zakończony',
-    sectionPrivacy: 'Projekty Webowe z Naciskiem na Prywatność',
+    sectionPrivacy: 'Projekty webowe przyjazne prywatności',
     sectionPersonal: 'Osobiste',
     sectionExperience: 'Jak tu trafiłem',
     sectionBlog: 'Pisanie Techniczne',
@@ -97,40 +133,55 @@ export const translations: Record<Locale, Translations> = {
       'work-next': 'Myślę nad czymś nowym',
     },
     workDescriptions: {
-      'work-foundations': 'Tworzenie na bazie szablonów HTML i CSS oraz oswajanie się z JavaScriptem.',
-      'work-flask': 'Aplikacja w Pythonie (Flask) z prawdziwym backendem i logowaniem, niezbyt bezpieczna, ale nauczyła mnie, jak wiele jeszcze nie wiem.',
-      'work-react': 'Nauka Reacta, Next.js i tego, jak naprawdę działają bazy danych.',
-      'work-first-project': 'Wdrożyłem coś prawdziwego z realnymi użytkownikami, działało, ale trudno było to utrzymać i skalować.',
-      'work-hypastack': 'Przepisany więcej razy, niż jestem w stanie zliczyć, i zabezpieczony linijka po linijce. Szybki, niezawodny i bezpieczny.',
-      'work-next': 'Hypastack i Hypamail zostały zakończone, więc myślę nad nowym projektem. Daj znać, jeśli masz jakiś pomysł.',
+      'work-foundations':
+        'Tworzenie na bazie szablonów HTML i CSS oraz oswajanie się z JavaScriptem.',
+      'work-flask':
+        'Aplikacja w Pythonie (Flask) z prawdziwym backendem i logowaniem, niezbyt bezpieczna, ale nauczyła mnie, jak wiele jeszcze nie wiem.',
+      'work-react':
+        'Nauka Reacta, Next.js i tego, jak naprawdę działają bazy danych.',
+      'work-first-project':
+        'Wdrożyłem coś prawdziwego z realnymi użytkownikami, działało, ale trudno było to utrzymać i skalować.',
+      'work-hypastack':
+        'Przepisany więcej razy, niż jestem w stanie zliczyć, i zabezpieczony linijka po linijce. Szybki, niezawodny i bezpieczny.',
+      'work-next':
+        'Hypastack i Hypamail zostały zakończone, więc myślę nad nowym projektem. Daj znać, jeśli masz jakiś pomysł.',
     },
     projectDescriptions: {
-      'project-hypastack': 'SaaS do udostępniania plików z naciskiem na prywatność i wbudowanym CDN. Szyfrowany, szybki, tymczasowy.',
+      'project-hetaku':
+        'Globalny CDN, który nie sprzedaje Twoich danych, nie pokazuje reklam i nie śledzi Cię dla zysku.',
+      'project-hypastack':
+        'SaaS do udostępniania plików z naciskiem na prywatność i wbudowanym CDN. Szyfrowany, szybki, tymczasowy.',
       'project-hypamail': 'Tymczasowa poczta e-mail.',
     },
     personalProjectDescriptions: {
-      'project-usekiko': 'Moje osobiste portfolio, strona, na której właśnie jesteś.',
+      'project-usekiko':
+        'Moje osobiste portfolio, strona, na której właśnie jesteś.',
     },
     blogTitles: {
       'blog-1': {
         title: 'Dlaczego Tworzę dla Webu',
-        description: 'Moja droga w web development, co motywuje mnie do tworzenia produktów i dlaczego prywatność i wydajność mają znaczenie.',
+        description:
+          'Moja droga w web development, co motywuje mnie do tworzenia produktów i dlaczego prywatność i wydajność mają znaczenie.',
       },
       'blog-2': {
         title: 'Dlaczego Mój Node Oddaje Pracę Go i Erlangowi',
-        description: 'Hypastack uruchamia trzy usługi pomocnicze obok Next.js, dwie w Go, jedną w Erlang/OTP. Co robi każda z nich i dlaczego Node był złym miejscem na te zadania.',
+        description:
+          'Hypastack uruchamia trzy usługi pomocnicze obok Next.js, dwie w Go, jedną w Erlang/OTP. Co robi każda z nich i dlaczego Node był złym miejscem na te zadania.',
       },
       'blog-3': {
         title: 'Pięć Błędów, Które Popełniłem przy Hypastack',
-        description: 'Zbuforowane odrzucone Promise, bias modulo w generowaniu ID, stored XSS na własnym CDN i dwie funkcje, do których nie dało się dotrzeć.',
+        description:
+          'Zbuforowane odrzucone Promise, bias modulo w generowaniu ID, stored XSS na własnym CDN i dwie funkcje, do których nie dało się dotrzeć.',
       },
       'blog-4': {
         title: 'Budowanie Wydajnego CDN z Cloudflare R2',
-        description: 'AES-256-GCM po stronie przeglądarki, presigned uploady prosto do R2, wznawialny multipart i edge worker blokujący wszystko domyślnie.',
+        description:
+          'AES-256-GCM po stronie przeglądarki, presigned uploady prosto do R2, wznawialny multipart i edge worker blokujący wszystko domyślnie.',
       },
       'blog-5': {
         title: 'Koniec ze Spinnerami Ładowania',
-        description: 'Skeletony, strumieniowane pobieranie i optymalizacje, które naprawdę zrobiły różnicę, łącznie z tą, którą musiałem cofnąć.',
+        description:
+          'Skeletony, strumieniowane pobieranie i optymalizacje, które naprawdę zrobiły różnicę, łącznie z tą, którą musiałem cofnąć.',
       },
     },
   },

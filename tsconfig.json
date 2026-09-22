@@ -52,9 +52,12 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "next.config.mjs",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    ".next-verify/types/**/*.ts",
+    ".next-verify/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "new-kiko"
   ]
 }

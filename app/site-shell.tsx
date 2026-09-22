@@ -1,23 +1,37 @@
 import type { Viewport } from 'next'
-import { Instrument_Sans } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
-import { Header } from './header'
-import { Footer } from './footer'
-import { Navbar } from './navbar'
+import { CornerInfo } from './components/corner-info'
+import { ScrollTop } from './components/scroll-top'
+import { Section, Separator } from './components/section'
+import { themeScript } from './components/theme'
+import { WordmarkFooter } from './components/wordmark-footer'
 import { AVATAR_IMAGE } from './data'
 import { serializeJsonLd, siteJsonLd } from './site-config'
 
-const instrumentSans = Instrument_Sans({
+const fontX = localFont({
+  src: [
+    { path: './fonts/X-Regular.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/X-Medium.woff2', weight: '500', style: 'normal' },
+  ],
+  variable: '--font-x',
+})
+
+const fontMono = JetBrains_Mono({
   subsets: ['latin', 'latin-ext'],
-  variable: '--font-instrument-sans',
+  variable: '--font-jetbrains-mono',
 })
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#000000',
-  colorScheme: 'dark',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#09090b' },
+  ],
+  colorScheme: 'light dark',
 }
 
 /**
@@ -32,29 +46,35 @@ export function SiteShell({
   children: React.ReactNode
 }) {
   return (
-    <html lang={lang} className={`dark ${instrumentSans.variable}`}>
+    <html
+      lang={lang}
+      className={`${fontX.variable} ${fontMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
-        {/* Header avatar, rendered on every page. Card images are preloaded
-            by the locale page, which is the only place they appear. */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* Hero avatar, rendered on the home page above the fold. */}
         <link rel="preload" as="image" href={AVATAR_IMAGE} />
-        <link rel="dns-prefetch" href="https://r2.hypastack.com" />
         <link rel="dns-prefetch" href="https://s1.hetaku.dev" />
-        <link rel="dns-prefetch" href="https://hypastack.com" />
       </head>
-      <body className="bg-black text-white antialiased">
+      <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteJsonLd) }}
         />
 
-        <Navbar lang={lang} />
+        <CornerInfo />
+        <ScrollTop />
 
-        <div className="flex min-h-screen w-full flex-col">
-          <div className="relative mx-auto w-full max-w-screen-md flex-1 px-4 pt-28">
-            <Header />
-            {children}
-            <Footer />
-          </div>
+        <div className="relative min-h-screen w-full bg-background">
+          <Separator />
+          {children}
+          <Separator />
+          <Section flush>
+            <WordmarkFooter brandName="Kiko" />
+          </Section>
+          <Separator />
+          <div className="h-16 shrink-0" />
         </div>
       </body>
     </html>

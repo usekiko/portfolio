@@ -1,5 +1,6 @@
 'use client'
 
+import { CheckIcon, LinkIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 export function CopyButton() {
@@ -24,11 +25,11 @@ export function CopyButton() {
   return (
     <button
       onClick={copy}
-      className="flex items-center gap-1 text-center text-sm text-zinc-400"
+      className="inline-flex items-center gap-1.5 rounded-lg border px-2 py-1 font-mono text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
       type="button"
     >
-      <span>{copied ? 'Copied' : 'Copy'}</span>
-      <span>URL</span>
+      {copied ? <CheckIcon className="size-3.5" /> : <LinkIcon className="size-3.5" />}
+      <span>{copied ? 'Copied' : 'Copy URL'}</span>
     </button>
   )
 }

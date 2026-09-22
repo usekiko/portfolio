@@ -16,15 +16,15 @@ export const metadata: Metadata = {
 export default function AboutMe() {
   return (
     <>
-      <h1 className="text-xl font-normal mb-8">{title}</h1>
+      <h1 className="text-2xl font-semibold mb-8">{title}</h1>
 
       <p className="mb-4">
         The web is the most accessible platform ever created. Anyone with a browser can use what you build. That's what pulled me in, the idea that code becomes something real, something people actually use.
       </p>
 
-      <hr className="my-8 border-zinc-800" />
+      <hr className="my-8 border-border" />
 
-      <h2 className="text-lg font-normal mt-12 mb-4">How It Started</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">How It Started</h2>
 
       <p className="mb-4">
         I started building websites because I wanted to solve my own problems. Every tool I use, I think about how it could be better, faster, simpler, more private. That curiosity turned into actual projects.
@@ -34,29 +34,29 @@ export default function AboutMe() {
         What began as experimenting with HTML and CSS evolved into full-stack applications. React, Next.js, TypeScript, Node.js, each tool I picked up opened new doors. Eventually the problems stopped fitting inside one language, and that opened a few more.
       </p>
 
-      <h2 className="text-lg font-normal mt-12 mb-4">What I Care About</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">What I Care About</h2>
 
-      <h3 className="text-base font-normal mt-8 mb-2">Privacy</h3>
+      <h3 className="text-base font-medium mt-8 mb-2">Privacy</h3>
 
       <p className="mb-4">
-        Privacy isn't a feature, it's a default. When I build something, I start from the assumption that user data is not mine. That's why <a href="https://hypastack.com" className="underline text-zinc-300">Hypastack</a> encrypts files in the browser before they ever touch the network. No email, no ads, no tracking.
+        Privacy isn't a feature, it's a default. When I build something, I start from the assumption that user data is not mine. That's why <a href="https://hypastack.com">Hypastack</a> encrypts files in the browser before they ever touch the network. No email, no ads, no tracking.
       </p>
 
-      <h3 className="text-base font-normal mt-8 mb-2">Performance</h3>
+      <h3 className="text-base font-medium mt-8 mb-2">Performance</h3>
 
       <p className="mb-4">
         Slow software is broken software. I obsess over load times, bundle sizes, and perceived performance. If a page takes more than a second to feel ready, something's wrong.
       </p>
 
-      <h3 className="text-base font-normal mt-8 mb-2">Simplicity</h3>
+      <h3 className="text-base font-medium mt-8 mb-2">Simplicity</h3>
 
       <p className="mb-4">
         The best products don't need an instruction manual. I aim for interfaces that feel obvious, where the user knows what to do without thinking.
       </p>
 
-      <hr className="my-8 border-zinc-800" />
+      <hr className="my-8 border-border" />
 
-      <h2 className="text-lg font-normal mt-12 mb-4">What I'm Working On</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">What I'm Working On</h2>
 
       <p className="mb-4">
         Right now, most of my time goes into <strong>Hypastack</strong>, a private file sharing platform with a built-in CDN. The goal is simple: make it easy to share files without sacrificing privacy or speed.
@@ -67,12 +67,12 @@ export default function AboutMe() {
       </p>
 
       <p className="mb-4">
-        Uploads go straight from the browser to storage through presigned URLs, so my server authorizes transfers without carrying them. Files expire, and some burn after a single read. Everything runs on self-managed infrastructure, and the whole thing is <a href="https://github.com/HypaStack/Hypastack-Open-Source" target="_blank" rel="noopener noreferrer" className="underline text-zinc-300">open source under AGPL-3.0</a>, front-end included. A privacy claim you cannot audit is a marketing claim.
+        Uploads go straight from the browser to storage through presigned URLs, so my server authorizes transfers without carrying them. Files expire, and some burn after a single read. Everything runs on self-managed infrastructure, and the whole thing is <a href="https://github.com/HypaStack/Hypastack-Open-Source" target="_blank" rel="noopener noreferrer">open source under AGPL-3.0</a>, front-end included. A privacy claim you cannot audit is a marketing claim.
       </p>
 
-      <hr className="my-8 border-zinc-800" />
+      <hr className="my-8 border-border" />
 
-      <h2 className="text-lg font-normal mt-12 mb-4">The Stack I Use</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">The Stack I Use</h2>
 
       <ul className="list-disc pl-6 mb-4 space-y-2">
         <li><strong>Framework</strong>: Next.js 16 (App Router, Turbopack), React 19</li>
@@ -86,12 +86,12 @@ export default function AboutMe() {
       </ul>
 
       <p className="mb-4">
-        The polyglot part is not for show. Expensive password hashing does not belong on an event loop, and per-file expiry timers are something Erlang does better than anything else I know of. I <a href="/blog/polyglot-backend" className="underline text-zinc-300">wrote about why</a>.
+        The polyglot part is not for show. Expensive password hashing does not belong on an event loop, and per-file expiry timers are something Erlang does better than anything else I know of. I <a href="/blog/polyglot-backend">wrote about why</a>.
       </p>
 
-      <hr className="my-8 border-zinc-800" />
+      <hr className="my-8 border-border" />
 
-      <blockquote className="border-l-4 border-zinc-700 pl-4 italic text-zinc-400 my-8">
+      <blockquote className="border-l-4 border-border pl-4 italic text-muted-foreground my-8">
         "Make it work, make it right, make it fast.", Kent Beck
       </blockquote>
 

@@ -1,67 +1,22 @@
-import Link from 'next/link'
+import { BoxIcon } from 'lucide-react'
+import { ContributionGraph } from '../../components/contribution-graph'
+import { Experiences } from '../../components/experiences'
+import { GithubIcon } from '../../components/github-icon'
+import { LinkList } from '../../components/link-list'
+import { PronounceMyName } from '../../components/pronounce-my-name'
+import { RevealOnLoad } from '../../components/reveal-on-load'
+import { Section, SectionTitle, Separator } from '../../components/section'
+import { SkillsVenn } from '../../components/skills-venn'
 import {
-  PROJECTS,
-  PERSONAL_PROJECTS,
-  WORK_EXPERIENCE,
+  AVATAR_IMAGE,
   BLOG_POSTS,
   EMAIL,
+  PERSONAL_PROJECTS,
+  PROJECTS,
   SOCIAL_LINKS,
+  WORK_EXPERIENCE,
 } from '../../data'
 import { getTranslations } from '../../i18n'
-
-/** Every card image, in render order, also what we preload. */
-const CARD_IMAGES = [
-  ...new Set([...PROJECTS, ...PERSONAL_PROJECTS].map((p) => p.image)),
-]
-
-function ProjectImage({ src, alt }: { src: string; alt: string }) {
-  return (
-    <div className="relative aspect-video w-full overflow-hidden squircle-sm-inner">
-      <img
-        src={src}
-        alt={alt}
-        className="h-full w-full object-cover"
-        loading="eager"
-        decoding="sync"
-      />
-    </div>
-  )
-}
-
-function SocialLink({
-  children,
-  link,
-}: {
-  children: React.ReactNode
-  link: string
-}) {
-  return (
-    <a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-[1px] rounded-full bg-zinc-800 px-2.5 py-1 text-sm text-zinc-100"
-      aria-label={`Visit Kiko on ${children}`}
-    >
-      {children}
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-3 w-3"
-      >
-        <path
-          d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
-          fill="currentColor"
-          fillRule="evenodd"
-          clipRule="evenodd"
-        ></path>
-      </svg>
-    </a>
-  )
-}
 
 export default async function LocalePage({
   params,
@@ -72,171 +27,141 @@ export default async function LocalePage({
   const t = getTranslations(locale)
 
   return (
-    <main className="space-y-16">
-      {/* Hoisted into <head> by React. Keeps the cards spinner-free without
-          preloading them on routes that never render them. */}
-      {CARD_IMAGES.map((src) => (
-        <link key={src} rel="preload" as="image" href={src} />
-      ))}
-
-      <section id="hero" className="mb-10">
-        <div className="flex-1">
-          <h1 className="mb-1 text-2xl font-normal tracking-tight text-white">
-            {t.heroTitle}
-          </h1>
-          <p className="text-zinc-400">
-            {t.heroDescription}
-          </p>
-        </div>
-      </section>
-
-      <section id="privacy">
-        <h2 className="mb-5 text-lg font-normal">{t.sectionPrivacy}</h2>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {PROJECTS.map((project) => (
-            <div key={project.name} className="space-y-2">
-              <div className="relative squircle bg-zinc-800/50 p-[1px]">
-                <div className="relative h-full w-full squircle-inner bg-zinc-950/40 p-1">
-                  <ProjectImage src={project.image} alt={project.name} />
-                </div>
-              </div>
-              <div className="px-1">
-                <div className="flex items-center gap-2">
-                  <a
-                    className="inline-block font-normal text-zinc-50"
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {project.name}
-                  </a>
-                  {project.discontinued && (
-                    <span className="rounded-full bg-zinc-800 px-2 py-0.5 text-xs text-zinc-400">
-                      {t.discontinued}
-                    </span>
-                  )}
-                </div>
-                <p className="text-base text-zinc-400">
-                  {t.projectDescriptions[project.id] || project.description}
-                </p>
-              </div>
+    <main>
+      <Section id="hero">
+        <RevealOnLoad delay={0} duration={0.5}>
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <h1 className="text-2xl font-semibold">Kiko</h1>
+              <PronounceMyName name="Kiko" />
             </div>
-          ))}
-        </div>
-      </section>
+            <p className="font-mono text-sm tracking-wider text-muted-foreground uppercase">
+              {t.jobTitle}
+            </p>
+          </div>
+        </RevealOnLoad>
 
-      <section id="personal">
-        <h2 className="mb-5 text-lg font-normal">{t.sectionPersonal}</h2>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {PERSONAL_PROJECTS.map((project) => (
-            <div key={project.name} className="space-y-2">
-              <div className="relative squircle bg-zinc-800/50 p-[1px]">
-                <div className="relative h-full w-full squircle-inner bg-zinc-950/40 p-1">
-                  <ProjectImage src={project.image} alt={project.name} />
-                </div>
-              </div>
-              <div className="px-1">
-                <a
-                  className="inline-block font-normal text-zinc-50"
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {project.name}
-                </a>
-                <p className="text-base text-zinc-400">
-                  {t.personalProjectDescriptions[project.id] || project.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+        <RevealOnLoad delay={0.15} duration={0.5}>
+          <div className="mt-6 space-y-3 text-foreground/70">
+            <p className="leading-relaxed">{t.heroTitle}</p>
+            <p className="leading-relaxed">{t.heroDescription}</p>
+          </div>
+        </RevealOnLoad>
 
-      <section id="experience">
-        <h2 className="mb-5 text-lg font-normal">{t.sectionExperience}</h2>
-        <div className="flex flex-col space-y-2">
-          {WORK_EXPERIENCE.map((job) => {
-            const content = (
-              <div className="relative flex h-full w-full flex-col space-y-1 squircle-inner bg-black p-3">
-                <div className="flex w-full flex-row justify-between">
-                  <h3 className="font-normal text-zinc-100">
-                    {t.workTitles[job.id] || job.title}
-                  </h3>
-                  <p className="shrink-0 pl-3 text-zinc-400">
-                    {job.start}, {job.end}
-                  </p>
-                </div>
-                <p className="text-zinc-400">
-                  {t.workDescriptions[job.id] || job.company}
-                </p>
-              </div>
-            )
+        <RevealOnLoad delay={0.3} duration={0.6}>
+          <SkillsVenn profileImage={AVATAR_IMAGE} skills={t.skills} className="mt-8" />
+        </RevealOnLoad>
+      </Section>
 
-            return job.link ? (
-              <a
-                className="relative block squircle bg-zinc-800/50 p-[1px]"
-                href={job.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                key={job.id}
-              >
-                {content}
-              </a>
-            ) : (
-              <div
-                className="relative block squircle bg-zinc-800/50 p-[1px]"
-                key={job.id}
-              >
-                {content}
-              </div>
-            )
-          })}
+      <Separator />
+
+      <Section>
+        <ContributionGraph locale={locale} label={t.contributions} />
+      </Section>
+
+      <Separator />
+
+      <Section id="privacy">
+        <div className="space-y-6">
+          <SectionTitle>{t.sectionPrivacy}</SectionTitle>
+          <LinkList
+            icon={<BoxIcon />}
+            items={PROJECTS.map((p) => ({
+              id: p.id,
+              title: p.name,
+              description: t.projectDescriptions[p.id] || p.description,
+              href: p.link,
+              tag: p.discontinued ? t.discontinued : undefined,
+            }))}
+          />
         </div>
-      </section>
+      </Section>
+
+      <Separator />
+
+      <Section id="personal">
+        <div className="space-y-6">
+          <SectionTitle>{t.sectionPersonal}</SectionTitle>
+          <LinkList
+            icon={<BoxIcon />}
+            items={PERSONAL_PROJECTS.map((p) => ({
+              id: p.id,
+              title: p.name,
+              description: t.personalProjectDescriptions[p.id] || p.description,
+              href: p.link,
+            }))}
+          />
+        </div>
+      </Section>
+
+      <Separator />
+
+      <Section id="experience">
+        <div className="space-y-6">
+          <SectionTitle>{t.sectionExperience}</SectionTitle>
+          <Experiences
+            entries={[...WORK_EXPERIENCE].reverse().map((job) => ({
+              id: job.id,
+              title: t.workTitles[job.id] || job.title,
+              description: t.workDescriptions[job.id] || job.company,
+              start: job.start,
+              end: job.end,
+              link: job.link,
+              current: job.end === 'Present',
+            }))}
+          />
+        </div>
+      </Section>
 
       {BLOG_POSTS.length > 0 && (
-        <section id="blog">
-          <h2 className="mb-3 text-lg font-normal">{t.sectionBlog}</h2>
-          <div className="flex flex-col space-y-2">
-            {BLOG_POSTS.map((post) => (
-              <Link
-                key={post.uid}
-                className="relative block squircle bg-zinc-800/50 p-[1px]"
-                href={post.link}
-              >
-                <div className="relative flex h-full w-full flex-col space-y-1 squircle-inner bg-black p-3">
-                  <h3 className="font-normal text-zinc-100">
-                    {t.blogTitles[post.uid]?.title || post.title}
-                  </h3>
-                  <p className="text-zinc-400">
-                    {t.blogTitles[post.uid]?.description || post.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
+        <>
+          <Separator />
+          <Section id="blog">
+            <div className="space-y-6">
+              <SectionTitle>{t.sectionBlog}</SectionTitle>
+              <LinkList
+                divided
+                external={false}
+                items={BLOG_POSTS.map((post) => ({
+                  id: post.uid,
+                  title: t.blogTitles[post.uid]?.title || post.title,
+                  description: t.blogTitles[post.uid]?.description || post.description,
+                  href: post.link,
+                }))}
+              />
+            </div>
+          </Section>
+        </>
       )}
 
-      <section id="connect">
-        <h2 className="mb-5 text-lg font-normal">{t.sectionConnect}</h2>
-        <p className="mb-5 text-zinc-400">
-          {t.connectDescription}{' '}
-          <a className="underline text-zinc-300 decoration-zinc-600 underline-offset-2" href={`mailto:${EMAIL}`}>
-            {EMAIL}
-          </a>
-        </p>
-        <div className="flex items-center justify-start space-x-3">
-          {SOCIAL_LINKS.map((link) => (
-            <SocialLink key={link.label} link={link.link}>
-              {link.label}
-            </SocialLink>
-          ))}
+      <Separator />
+
+      <Section id="connect">
+        <div className="space-y-6">
+          <SectionTitle>{t.sectionConnect}</SectionTitle>
+          <p className="leading-relaxed text-foreground/70">
+            {t.connectDescription}{' '}
+            <a className="link text-foreground" href={`mailto:${EMAIL}`}>
+              {EMAIL}
+            </a>
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {SOCIAL_LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit Kiko on ${link.label}`}
+                className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm transition-colors hover:bg-accent"
+              >
+                <GithubIcon className="size-4" />
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
-      </section>
-
-
+      </Section>
     </main>
   )
 }

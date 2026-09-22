@@ -16,21 +16,21 @@ export const metadata: Metadata = {
 export default function BugsThatBitMe() {
   return (
     <>
-      <h1 className="text-xl font-normal mb-8">{title}</h1>
+      <h1 className="text-2xl font-semibold mb-8">{title}</h1>
 
       <p className="mb-4">
         Writing about architecture is easy because architecture is the part you chose. Bugs are the part that chose you. These are five real ones from Hypastack's history, what broke, why, and what I actually changed.
       </p>
 
-      <hr className="my-8 border-zinc-800" />
+      <hr className="my-8 border-border" />
 
-      <h2 className="text-lg font-normal mt-12 mb-4">1. The cached promise that poisoned every API call</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">1. The cached promise that poisoned every API call</h2>
 
       <p className="mb-4">
         Hypastack's client fetches a short-lived proxy token before hitting the API. To avoid requesting one per call, I memoized the in-flight promise, the standard trick:
       </p>
 
-      <pre className="bg-zinc-900 p-4 rounded-xl overflow-x-auto text-sm mb-4">
+      <pre className="bg-code text-code-foreground p-4 rounded-lg overflow-x-auto text-sm mb-4">
         <code>{`let tokenPromise = null
 
 function getProxyToken() {
@@ -47,7 +47,7 @@ function getProxyToken() {
         The worst part is how it presents: not as "the token request failed" but as "the entire app is broken and nothing works", with a stack trace pointing at whatever unlucky call happened to be next. The fix is one line, clear the cache on rejection, so a failure is retryable:
       </p>
 
-      <pre className="bg-zinc-900 p-4 rounded-xl overflow-x-auto text-sm mb-4">
+      <pre className="bg-code text-code-foreground p-4 rounded-lg overflow-x-auto text-sm mb-4">
         <code>{`tokenPromise = fetchToken().catch((err) => {
   tokenPromise = null   // let the next caller try again
   throw err
@@ -58,13 +58,13 @@ function getProxyToken() {
         <strong>The lesson:</strong> caching a promise caches the failure too. If you memoize an async result, decide explicitly what happens when it rejects, because the default is "cache the error until the tab closes".
       </p>
 
-      <h2 className="text-lg font-normal mt-12 mb-4">2. Modulo bias in my share IDs</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">2. Modulo bias in my share IDs</h2>
 
       <p className="mb-4">
         Share IDs are generated from random bytes mapped onto an alphabet. The natural way to write that is a modulo:
       </p>
 
-      <pre className="bg-zinc-900 p-4 rounded-xl overflow-x-auto text-sm mb-4">
+      <pre className="bg-code text-code-foreground p-4 rounded-lg overflow-x-auto text-sm mb-4">
         <code>{`const char = ALPHABET[randomByte % ALPHABET.length]`}</code>
       </pre>
 
@@ -80,7 +80,7 @@ function getProxyToken() {
         <strong>The lesson:</strong> "it looks random" is not an argument. This is the kind of bug that never produces a bug report, it just makes your IDs slightly cheaper to guess than you believe they are.
       </p>
 
-      <h2 className="text-lg font-normal mt-12 mb-4">3. Stored XSS on my own CDN domain</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">3. Stored XSS on my own CDN domain</h2>
 
       <p className="mb-4">
         Hypastack serves user files from <code>r2.hypastack.com</code>. If a user uploads an HTML file and the browser renders it as HTML, that page runs JavaScript <em>on my domain</em>. Same-origin against anything else served from that host. That is textbook stored XSS, and I shipped it.
@@ -103,7 +103,7 @@ function getProxyToken() {
         <strong>The lesson:</strong> if you serve user-controlled bytes, serve them from an origin where being XSSed is boring.
       </p>
 
-      <h2 className="text-lg font-normal mt-12 mb-4">4. Two features nobody could reach</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">4. Two features nobody could reach</h2>
 
       <p className="mb-4">
         Two separate discoveries, same shape.
@@ -121,7 +121,7 @@ function getProxyToken() {
         <strong>The lesson:</strong> code that runs is not the same as code that is reachable. I now run <code>knip</code> over the project specifically to find things nothing points at, and it keeps finding them.
       </p>
 
-      <h2 className="text-lg font-normal mt-12 mb-4">5. The optimization I had to revert</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">5. The optimization I had to revert</h2>
 
       <p className="mb-4">
         I subset the Material Symbols icon font from <strong>5.3 MB down to 14 KB</strong> by keeping only the codepoints actually used. Enormous win. I reverted it.
@@ -139,9 +139,9 @@ function getProxyToken() {
         <strong>The lesson:</strong> a performance win that makes future changes silently breakable is a loan, not a gift. Sometimes the right call is to keep the 5 MB and sleep.
       </p>
 
-      <hr className="my-8 border-zinc-800" />
+      <hr className="my-8 border-border" />
 
-      <p className="italic text-zinc-400 text-sm">
+      <p className="italic text-muted-foreground text-sm">
         All five are in the public git history, Hypastack is open source under AGPL-3.0, including the embarrassing commits.
       </p>
 

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function EndOfLoadingSpinners() {
   return (
     <>
-      <h1 className="text-xl font-normal mb-8">{title}</h1>
+      <h1 className="text-2xl font-semibold mb-8">{title}</h1>
 
       <p className="mb-4">
         A spinner is an apology. It says: something is happening, I do not know what, I do not know for how long, please wait. It is the least informative thing you can put on a screen, and for a long time Hypastack was full of them.
@@ -26,9 +26,9 @@ export default function EndOfLoadingSpinners() {
         Replacing them was not one change. It was a series of unglamorous ones.
       </p>
 
-      <hr className="my-8 border-zinc-800" />
+      <hr className="my-8 border-border" />
 
-      <h2 className="text-lg font-normal mt-12 mb-4">Skeletons that match the real DOM</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">Skeletons that match the real DOM</h2>
 
       <p className="mb-4">
         The drive and CDN pages now render <strong>skeletons shaped like the content that is coming</strong>, same grid, same tile dimensions, same spacing. When the data lands, the skeleton is replaced by something the same size, so nothing jumps.
@@ -42,7 +42,7 @@ export default function EndOfLoadingSpinners() {
         And a skeleton has to actually mount. Mine did not, for a while, the manage page declared its skeleton at the page level, but Next renders the layout first, so during navigation the skeleton had not mounted yet and never appeared. It had to move up into the layout to exist at all.
       </p>
 
-      <h2 className="text-lg font-normal mt-12 mb-4">Real progress, not fake progress</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">Real progress, not fake progress</h2>
 
       <p className="mb-4">
         Downloads on <code>/d/</code> used to buffer the whole file into memory and then hand it over. For a large file that meant a long, silent nothing, and a progress bar that could only be theatre, because there was no progress to report.
@@ -56,7 +56,7 @@ export default function EndOfLoadingSpinners() {
         The principle: <strong>if you can show a number, never show a spinner.</strong> A spinner is what you fall back to when you have failed to instrument the thing you are waiting on.
       </p>
 
-      <h2 className="text-lg font-normal mt-12 mb-4">Deleting things is a performance strategy</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">Deleting things is a performance strategy</h2>
 
       <p className="mb-4">
         The single biggest win was not an optimization. It was a deletion.
@@ -70,7 +70,7 @@ export default function EndOfLoadingSpinners() {
         The same audit found a hero video being preloaded on mobile, where it is never shown. Dead font references to typefaces the site does not use. CSP allowances for Google Fonts, which nothing loads from. None of these were clever fixes. They were just things nobody had checked.
       </p>
 
-      <h2 className="text-lg font-normal mt-12 mb-4">Know when to revert</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">Know when to revert</h2>
 
       <p className="mb-4">
         I once subset the icon font from <strong>5.3 MB to 14 KB</strong>. It was, by raw numbers, the best performance commit I have ever written. I reverted it a few days later.
@@ -84,9 +84,9 @@ export default function EndOfLoadingSpinners() {
         Performance work has a failure mode where the metric improves and the product gets worse. Watch for it.
       </p>
 
-      <hr className="my-8 border-zinc-800" />
+      <hr className="my-8 border-border" />
 
-      <h2 className="text-lg font-normal mt-12 mb-4">What is left</h2>
+      <h2 className="text-lg font-medium mt-12 mb-4">What is left</h2>
 
       <p className="mb-4">
         Preload what you will definitely need, on the routes where you will actually need it. Lazy-load what is below the fold. Cache the expensive derived things, rendered OG images now come out of Redis instead of refetching the logo on every render. Let immutable content be cached forever, because it is immutable.
