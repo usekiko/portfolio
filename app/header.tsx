@@ -22,8 +22,8 @@ export function Header() {
         />
         <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-b from-transparent to-black" />
       </div>
-      <div className="relative -mt-16 px-3 pb-5">
-        <div className="w-fit mask-squircle bg-black p-2">
+      <div className="relative -mt-16 flex flex-col items-center pb-5 text-center">
+        <div className="mask-squircle bg-black p-2">
           <img
             src={AVATAR_IMAGE}
             alt="Kiko"
@@ -32,7 +32,7 @@ export function Header() {
             decoding="sync"
           />
         </div>
-        <div className="mt-2 px-2">
+        <div className="mt-2">
           <Link href="/" className="text-xl font-normal text-white">
             Kiko
           </Link>
