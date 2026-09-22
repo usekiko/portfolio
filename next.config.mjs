@@ -10,7 +10,6 @@ const contentSecurityPolicy = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https://r2.hypastack.com https://s1.hetaku.dev",
   "font-src 'self'",
-  "media-src https://s1.hetaku.dev",
   "connect-src 'self'",
   "frame-ancestors 'none'",
   "base-uri 'self'",

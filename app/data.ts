@@ -29,10 +29,8 @@ type SocialLink = {
 
 const HETAKU_CDN = 'https://s1.hetaku.dev/59ae349f-1bcd-43e3-9438-c65ee3947f11/'
 
-/** Header avatar and banner. Images are preloaded in the site shell, the banner image doubles as the video poster. */
+/** Header avatar. Preloaded in the site shell, so keep the two in sync. */
 export const AVATAR_IMAGE = `${HETAKU_CDN}a07fc64156634d3130273f71d66fed085bbc2a6f2e5b5b4ffbefcaafc8f4f31b.jpeg`
-export const BANNER_IMAGE = `${HETAKU_CDN}5463b0b8931a645ac95623ccbbaa3ffdf4a82c1fcdff2e784d5bc0b34fbdc8a1.jpeg`
-export const BANNER_VIDEO = `${HETAKU_CDN}9df5c640ae27fee469f996a3b91a1bfcb3f515306110de667f91ccaea668f790.mp4`
 
 // placeholder card image until each project gets its own
 const PROJECT_IMAGE = `${HETAKU_CDN}cc97bc9424229a610935046e05ad6a43349c142f2501da041fa0c5df541d99d9.png`
