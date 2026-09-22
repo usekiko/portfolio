@@ -2,6 +2,7 @@ export const SUPPORTED_LOCALES = ['en', 'pl'] as const
 export type Locale = (typeof SUPPORTED_LOCALES)[number]
 
 type Translations = {
+  navContact: string
   heroTitle: string
   heroDescription: string
   heroHypastackSuffix: string
@@ -20,6 +21,7 @@ type Translations = {
 
 export const translations: Record<Locale, Translations> = {
   en: {
+    navContact: 'Contact',
     heroTitle: 'Backend systems that simply work.',
     heroDescription: 'Building products that prioritize privacy and performance. Currently working on',
     heroHypastackSuffix: ', a secure file sharing platform with built-in CDN.',
@@ -74,6 +76,7 @@ export const translations: Record<Locale, Translations> = {
     },
   },
   pl: {
+    navContact: 'Kontakt',
     heroTitle: 'Systemy backendowe, które po prostu działają.',
     heroDescription: 'Tworzę produkty, w których priorytetem jest prywatność i wydajność. Obecnie pracuję nad',
     heroHypastackSuffix: ', bezpieczną platformą do udostępniania plików z wbudowanym CDN.',
