@@ -16,7 +16,7 @@ export function Navbar({ lang }: { lang: string }) {
 
   return (
     <nav
-      className={`fixed top-4 left-1/2 z-20 flex -translate-x-1/2 items-center justify-between rounded bg-[#333333] p-1 transition-[width,max-width] duration-300 ease-out ${
+      className={`fixed top-4 left-1/2 z-20 flex -translate-x-1/2 items-center justify-between rounded bg-[#333333]/60 p-1 backdrop-blur-xl transition-[width,max-width] duration-300 ease-out ${
         scrolled
           ? 'w-[calc((100%-2rem)/2)] max-w-[calc((48rem-2rem)/2)]'
           : 'w-[calc(100%-2rem)] max-w-[calc(48rem-2rem)]'
