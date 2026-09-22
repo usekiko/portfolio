@@ -3,7 +3,7 @@ import { AVATAR_IMAGE, BANNER_IMAGE, BANNER_VIDEO } from './data'
 
 export function Header() {
   return (
-    <header className="mb-12 overflow-hidden rounded-3xl border border-zinc-800 bg-black">
+    <header className="mb-12 overflow-hidden rounded-3xl border border-zinc-900 bg-black">
       <div className="relative h-56 bg-zinc-900">
         {/* pointer-events-none keeps it from being paused, hovered for controls or right-clicked */}
         <video
