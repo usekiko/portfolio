@@ -85,16 +85,7 @@ export default async function LocalePage({
             {t.heroTitle}
           </h1>
           <p className="text-zinc-400">
-            {t.heroDescription}{' '}
-            <a
-              href="https://hypastack.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-200 underline decoration-zinc-600 underline-offset-2"
-            >
-              Hypastack
-            </a>
-            {' '}{t.heroHypastackSuffix}
+            {t.heroDescription}
           </p>
         </div>
       </section>
@@ -110,14 +101,21 @@ export default async function LocalePage({
                 </div>
               </div>
               <div className="px-1">
-                <a
-                  className="inline-block font-normal text-zinc-50"
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {project.name}
-                </a>
+                <div className="flex items-center gap-2">
+                  <a
+                    className="inline-block font-normal text-zinc-50"
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {project.name}
+                  </a>
+                  {project.discontinued && (
+                    <span className="rounded-full bg-zinc-800 px-2 py-0.5 text-xs text-zinc-400">
+                      {t.discontinued}
+                    </span>
+                  )}
+                </div>
                 <p className="text-base text-zinc-400">
                   {t.projectDescriptions[project.id] || project.description}
                 </p>

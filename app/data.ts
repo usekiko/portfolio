@@ -4,6 +4,7 @@ type Project = {
   link: string
   image: string
   id: string
+  discontinued?: boolean
 }
 
 type WorkExperience = {
@@ -43,6 +44,7 @@ export const PROJECTS: Project[] = [
     link: 'https://hypastack.com/',
     image: PROJECT_IMAGE,
     id: 'project-hypastack',
+    discontinued: true,
   },
   {
     name: 'Hypamail',
@@ -50,6 +52,7 @@ export const PROJECTS: Project[] = [
     link: 'https://hypamail.me/',
     image: PROJECT_IMAGE,
     id: 'project-hypamail',
+    discontinued: true,
   },
 ]
 
@@ -99,9 +102,17 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'Rewrote it more times than I can count and hardened it line by line. Fast, reliable, and secure.',
     title: 'Building Hypastack',
     start: '2025',
-    end: 'Present',
+    end: '2026',
     link: 'https://hypastack.com',
     id: 'work-hypastack',
+  },
+  {
+    company:
+      'Hypastack and Hypamail both got discontinued, so I\'m thinking of a new project. Let me know if you have any ideas.',
+    title: 'Thinking of something new',
+    start: '2026',
+    end: 'Present',
+    id: 'work-next',
   },
 ]
 
@@ -145,10 +156,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'Github',
     link: GITHUB_URL,
   },
-  {
-    label: 'Hypastack',
-    link: 'https://hypastack.com',
-  },
 ]
 
-export const EMAIL = 'usekiko@hypamail.me'
+export const EMAIL = 'usekiko@tutamail.com'

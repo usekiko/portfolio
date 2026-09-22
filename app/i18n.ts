@@ -5,7 +5,7 @@ type Translations = {
   navContact: string
   heroTitle: string
   heroDescription: string
-  heroHypastackSuffix: string
+  discontinued: string
   sectionPrivacy: string
   sectionPersonal: string
   sectionExperience: string
@@ -23,8 +23,8 @@ export const translations: Record<Locale, Translations> = {
   en: {
     navContact: 'Contact',
     heroTitle: 'Backend systems that simply work.',
-    heroDescription: 'Building products that prioritize privacy and performance. Currently working on',
-    heroHypastackSuffix: ', a secure file sharing platform with built-in CDN.',
+    heroDescription: 'Good software gets out of the way. I build things that load fast and last.',
+    discontinued: 'Discontinued',
     sectionPrivacy: 'Privacy-Focused Web Projects',
     sectionPersonal: 'Personal',
     sectionExperience: 'How I Got Here',
@@ -37,6 +37,7 @@ export const translations: Record<Locale, Translations> = {
       'work-react': 'Moving to React & Next.js',
       'work-first-project': 'First project with real users',
       'work-hypastack': 'Building Hypastack',
+      'work-next': 'Thinking of something new',
     },
     workDescriptions: {
       'work-foundations': 'Building from HTML & CSS templates and getting comfortable with JavaScript.',
@@ -44,6 +45,7 @@ export const translations: Record<Locale, Translations> = {
       'work-react': 'Picked up React, Next.js, and how databases actually work.',
       'work-first-project': 'Shipped something real with actual users, it worked, but it was hard to maintain and didn\'t scale.',
       'work-hypastack': 'Rewrote it more times than I can count and hardened it line by line. Fast, reliable, and secure.',
+      'work-next': 'Hypastack and Hypamail both got discontinued, so I\'m thinking of a new project. Let me know if you have any ideas.',
     },
     projectDescriptions: {
       'project-hypastack': 'Privacy-focused file sharing SaaS with a built-in CDN. Encrypted, fast, temporary.',
@@ -78,8 +80,8 @@ export const translations: Record<Locale, Translations> = {
   pl: {
     navContact: 'Kontakt',
     heroTitle: 'Systemy backendowe, które po prostu działają.',
-    heroDescription: 'Tworzę produkty, w których priorytetem jest prywatność i wydajność. Obecnie pracuję nad',
-    heroHypastackSuffix: ', bezpieczną platformą do udostępniania plików z wbudowanym CDN.',
+    heroDescription: 'Dobre oprogramowanie nie wchodzi w drogę. Tworzę rzeczy, które działają szybko i zostają na długo.',
+    discontinued: 'Zakończony',
     sectionPrivacy: 'Projekty Webowe z Naciskiem na Prywatność',
     sectionPersonal: 'Osobiste',
     sectionExperience: 'Jak tu trafiłem',
@@ -92,6 +94,7 @@ export const translations: Record<Locale, Translations> = {
       'work-react': 'Przejście na React i Next.js',
       'work-first-project': 'Pierwszy projekt z prawdziwymi użytkownikami',
       'work-hypastack': 'Budowanie Hypastack',
+      'work-next': 'Myślę nad czymś nowym',
     },
     workDescriptions: {
       'work-foundations': 'Tworzenie na bazie szablonów HTML i CSS oraz oswajanie się z JavaScriptem.',
@@ -99,6 +102,7 @@ export const translations: Record<Locale, Translations> = {
       'work-react': 'Nauka Reacta, Next.js i tego, jak naprawdę działają bazy danych.',
       'work-first-project': 'Wdrożyłem coś prawdziwego z realnymi użytkownikami, działało, ale trudno było to utrzymać i skalować.',
       'work-hypastack': 'Przepisany więcej razy, niż jestem w stanie zliczyć, i zabezpieczony linijka po linijce. Szybki, niezawodny i bezpieczny.',
+      'work-next': 'Hypastack i Hypamail zostały zakończone, więc myślę nad nowym projektem. Daj znać, jeśli masz jakiś pomysł.',
     },
     projectDescriptions: {
       'project-hypastack': 'SaaS do udostępniania plików z naciskiem na prywatność i wbudowanym CDN. Szyfrowany, szybki, tymczasowy.',
