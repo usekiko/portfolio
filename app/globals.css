@@ -1,14 +1,6 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 @custom-variant dark (&:is(.dark *));
-
-@font-face {
-  font-family: 'Codec Pro';
-  src: url('https://r2.hypastack.com/cdn/a07t77fqwj6a/CodecPro-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: block;
-}
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -29,7 +21,7 @@
   html, body {
     background-color: #000000;
     color: #ffffff;
-    font-family: 'Codec Pro', system-ui, sans-serif;
+    font-family: var(--font-instrument-sans), system-ui, sans-serif;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE/Edge */
   }

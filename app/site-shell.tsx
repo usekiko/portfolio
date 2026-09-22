@@ -1,9 +1,15 @@
 import type { Viewport } from 'next'
+import { Instrument_Sans } from 'next/font/google'
 import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
 import { AVATAR_IMAGE, BANNER_IMAGE } from './data'
 import { serializeJsonLd, siteJsonLd } from './site-config'
+
+const instrumentSans = Instrument_Sans({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-instrument-sans',
+})
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -25,15 +31,8 @@ export function SiteShell({
   children: React.ReactNode
 }) {
   return (
-    <html lang={lang} className="dark">
+    <html lang={lang} className={`dark ${instrumentSans.variable}`}>
       <head>
-        <link
-          rel="preload"
-          href="https://r2.hypastack.com/cdn/a07t77fqwj6a/CodecPro-Regular.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
         {/* Header images, rendered on every page. Card images are preloaded
             by the locale page, which is the only place they appear. */}
         <link rel="preload" as="image" href={AVATAR_IMAGE} />
