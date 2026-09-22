@@ -27,9 +27,14 @@ type SocialLink = {
   link: string
 }
 
-/** Header avatar. Preloaded in the site shell, so keep the two in sync. */
-export const AVATAR_IMAGE =
-  'https://r2.hypastack.com/cdn/jxvmdjwe4dnu/hellbound.png'
+const HETAKU_CDN = 'https://s1.hetaku.dev/59ae349f-1bcd-43e3-9438-c65ee3947f11/'
+
+/** Header avatar and banner. Preloaded in the site shell. */
+export const AVATAR_IMAGE = `${HETAKU_CDN}a07fc64156634d3130273f71d66fed085bbc2a6f2e5b5b4ffbefcaafc8f4f31b.jpeg`
+export const BANNER_IMAGE = `${HETAKU_CDN}5463b0b8931a645ac95623ccbbaa3ffdf4a82c1fcdff2e784d5bc0b34fbdc8a1.jpeg`
+
+// placeholder card image until each project gets its own
+const PROJECT_IMAGE = `${HETAKU_CDN}cc97bc9424229a610935046e05ad6a43349c142f2501da041fa0c5df541d99d9.png`
 
 export const PROJECTS: Project[] = [
   {
@@ -37,14 +42,14 @@ export const PROJECTS: Project[] = [
     description:
       'Privacy-focused file sharing SaaS with a built-in CDN. Encrypted, fast, temporary.',
     link: 'https://hypastack.com/',
-    image: 'https://r2.hypastack.com/cdn/kdszwcn7wzr3/hypav3.webp',
+    image: PROJECT_IMAGE,
     id: 'project-hypastack',
   },
   {
     name: 'Hypamail',
     description: 'Burner email service.',
     link: 'https://hypamail.me/',
-    image: 'https://r2.hypastack.com/cdn/c24k5i02vyja/hypamailv2.webp',
+    image: PROJECT_IMAGE,
     id: 'project-hypamail',
   },
 ]
@@ -54,7 +59,7 @@ export const PERSONAL_PROJECTS: Project[] = [
     name: 'UseKiko.com',
     description: 'My personal portfolio, the site you\'re on right now.',
     link: 'https://usekiko.com/',
-    image: 'https://r2.hypastack.com/cdn/myfmtfngyalf/usekikoimg.webp',
+    image: PROJECT_IMAGE,
     id: 'project-usekiko',
   },
 ]

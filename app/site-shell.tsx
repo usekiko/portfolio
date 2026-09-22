@@ -2,7 +2,7 @@ import type { Viewport } from 'next'
 import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
-import { AVATAR_IMAGE } from './data'
+import { AVATAR_IMAGE, BANNER_IMAGE } from './data'
 import { serializeJsonLd, siteJsonLd } from './site-config'
 
 export const viewport: Viewport = {
@@ -34,10 +34,12 @@ export function SiteShell({
           type="font/ttf"
           crossOrigin="anonymous"
         />
-        {/* Header avatar, rendered on every page. Card images are preloaded
+        {/* Header images, rendered on every page. Card images are preloaded
             by the locale page, which is the only place they appear. */}
         <link rel="preload" as="image" href={AVATAR_IMAGE} />
+        <link rel="preload" as="image" href={BANNER_IMAGE} />
         <link rel="dns-prefetch" href="https://r2.hypastack.com" />
+        <link rel="dns-prefetch" href="https://s1.hetaku.dev" />
         <link rel="dns-prefetch" href="https://hypastack.com" />
       </head>
       <body className="bg-black tracking-tight text-white antialiased">

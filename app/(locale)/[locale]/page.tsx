@@ -10,7 +10,9 @@ import {
 import { getTranslations } from '../../i18n'
 
 /** Every card image, in render order, also what we preload. */
-const CARD_IMAGES = [...PROJECTS, ...PERSONAL_PROJECTS].map((p) => p.image)
+const CARD_IMAGES = [
+  ...new Set([...PROJECTS, ...PERSONAL_PROJECTS].map((p) => p.image)),
+]
 
 function ProjectImage({ src, alt }: { src: string; alt: string }) {
   return (
