@@ -20,20 +20,21 @@ export function Header() {
           tabIndex={-1}
           className="pointer-events-none absolute inset-0 h-full w-full rounded-t-3xl object-cover select-none"
         />
-        <div className="absolute inset-0 bg-linear-to-b from-transparent from-70% to-black" />
+      </div>
+      <div className="relative -mt-14 flex items-center gap-4 px-4">
         <img
           src={AVATAR_IMAGE}
           alt="Kiko"
-          className="absolute bottom-0 left-4 h-32 w-32 translate-y-1/2 mask-squircle object-cover"
+          className="h-28 w-28 mask-squircle object-cover"
           loading="eager"
           decoding="sync"
         />
-      </div>
-      <div className="mt-18 pl-4">
-        <Link href="/" className="text-xl font-normal text-white">
-          Kiko
-        </Link>
-        <p className="text-lg font-normal text-zinc-400">Developer & Builder</p>
+        <div>
+          <Link href="/" className="text-xl font-normal text-white">
+            Kiko
+          </Link>
+          <p className="text-lg font-normal text-zinc-400">Developer & Builder</p>
+        </div>
       </div>
     </header>
   )
