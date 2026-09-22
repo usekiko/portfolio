@@ -4,7 +4,7 @@ import { AVATAR_IMAGE, BANNER_IMAGE, BANNER_VIDEO } from './data'
 export function Header() {
   return (
     <header className="mb-12 overflow-hidden rounded-3xl border border-zinc-800 bg-black">
-      <div className="relative h-40 bg-zinc-900">
+      <div className="relative h-56 bg-zinc-900">
         {/* pointer-events-none keeps it from being paused, hovered for controls or right-clicked */}
         <video
           src={BANNER_VIDEO}
@@ -21,8 +21,8 @@ export function Header() {
           className="pointer-events-none absolute inset-0 h-full w-full object-cover select-none"
         />
       </div>
-      <div className="relative -mt-[71px] flex items-center gap-4 px-4 pb-4">
-        <div className="mask-squircle bg-black p-[15px]">
+      <div className="relative -mt-16 px-3 pb-5">
+        <div className="w-fit mask-squircle bg-black p-2">
           <img
             src={AVATAR_IMAGE}
             alt="Kiko"
@@ -31,7 +31,7 @@ export function Header() {
             decoding="sync"
           />
         </div>
-        <div>
+        <div className="mt-2 px-2">
           <Link href="/" className="text-xl font-normal text-white">
             Kiko
           </Link>
